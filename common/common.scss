@@ -180,3 +180,18 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
 .d-header .btn-flat:hover .d-icon {
   color: var(--quaternary);
 }
+
+// Icône de chat du header : même comportement que les autres icônes
+.d-header .chat-header-icon .d-icon,
+.d-header .chat-header-icon svg {
+  color: var(--tertiary);
+}
+
+.d-header .icon:hover .d-icon,
+.d-header .icon:focus .d-icon,
+.d-header .btn-flat:hover .d-icon,
+.d-header .chat-header-icon:hover .d-icon,
+.d-header .chat-header-icon:hover svg,
+.d-header .chat-header-icon:focus .d-icon {
+  color: var(--quaternary) !important;
+}
