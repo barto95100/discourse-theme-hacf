@@ -1,0 +1,44 @@
+{
+  "name": "HACF",
+  "component": false,
+  "license_url": null,
+  "about_url": null,
+  "authors": "HACF — Home Assistant Communauté Francophone",
+  "theme_version": "0.1.0",
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {
+    "hacf-logo": "assets/hacf-logo.png",
+    "font-sora-500": "assets/fonts/sora-latin-500-normal.woff2",
+    "font-sora-700": "assets/fonts/sora-latin-700-normal.woff2",
+    "font-manrope-400": "assets/fonts/manrope-latin-400-normal.woff2",
+    "font-manrope-500": "assets/fonts/manrope-latin-500-normal.woff2",
+    "font-manrope-700": "assets/fonts/manrope-latin-700-normal.woff2"
+  },
+  "color_schemes": {
+    "HACF Clair": {
+      "primary": "1E1B3A",
+      "secondary": "FBF8FA",
+      "tertiary": "1A55D6",
+      "quaternary": "8B3F9E",
+      "header_background": "FFFFFF",
+      "header_primary": "1B1840",
+      "highlight": "F6E3A8",
+      "danger": "B42318",
+      "success": "1E7A4F",
+      "love": "D92C27"
+    },
+    "HACF Sombre": {
+      "primary": "ECE8F7",
+      "secondary": "0F0E1C",
+      "tertiary": "7FB0FF",
+      "quaternary": "DDB2F2",
+      "header_background": "14132A",
+      "header_primary": "FFFFFF",
+      "highlight": "5C4B12",
+      "danger": "FF6B66",
+      "success": "4AD39A",
+      "love": "FF6B66"
+    }
+  }
+}

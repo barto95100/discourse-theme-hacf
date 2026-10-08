@@ -1,0 +1,78 @@
+// ============================================================
+// Thème HACF — étape 1 : polices embarquées + variables de marque
+// ============================================================
+
+// --- Polices (embarquées, aucun appel à un CDN externe) -------
+@font-face {
+  font-family: "Sora";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url($font-sora-500) format("woff2");
+}
+
+@font-face {
+  font-family: "Sora";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url($font-sora-700) format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url($font-manrope-400) format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url($font-manrope-500) format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url($font-manrope-700) format("woff2");
+}
+
+// --- Variables de marque --------------------------------------
+// Dégradé du logo : bleu -> violet -> rouge.
+// Les couleurs de texte et de fond viennent des palettes
+// (HACF Clair / HACF Sombre) via les variables natives Discourse.
+:root {
+  --hacf-blue: #1a7bff;
+  --hacf-violet: #8b5aa8;
+  --hacf-red: #ff3d38;
+  --hacf-gradient: linear-gradient(
+    90deg,
+    var(--hacf-blue),
+    var(--hacf-violet),
+    var(--hacf-red)
+  );
+
+  --hacf-font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hacf-font-heading: "Sora", "Manrope", system-ui, sans-serif;
+
+  // Variables natives de Discourse (si présentes dans la version installée)
+  --font-family: var(--hacf-font-body);
+  --heading-font-family: var(--hacf-font-heading);
+}
+
+body {
+  font-family: var(--hacf-font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--hacf-font-heading);
+}
