@@ -168,3 +168,15 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
 .d-header .icon .d-icon {
   color: var(--header_primary);
 }
+
+// Icônes du header : bleu de marque, violet au survol
+.d-header .d-icon,
+.d-header .btn-flat .d-icon,
+.d-header .icon .d-icon {
+  color: var(--tertiary);
+}
+
+.d-header .icon:hover .d-icon,
+.d-header .btn-flat:hover .d-icon {
+  color: var(--quaternary);
+}
