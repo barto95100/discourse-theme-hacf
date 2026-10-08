@@ -144,3 +144,13 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
   border-radius: 8px;
   background: color-mix(in srgb, var(--primary) 7%, transparent);
 }
+
+// Étape 4a (suite) : même style sur toutes les colonnes de l'en-tête
+.topic-list-header th *,
+.topic-list-header .topic-list-data * {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+}
