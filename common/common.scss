@@ -105,8 +105,8 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
 .welcome-banner {
   border-radius: 20px;
   background:
-    $hacf-tree 6% -26px / 220px auto no-repeat,
-    $hacf-tree 94% -34px / 200px auto no-repeat,
+    $hacf-tree 6% -14px / 190px auto no-repeat,
+    $hacf-tree 94% -22px / 170px auto no-repeat,
     radial-gradient(ellipse 38% 110% at 18% 0%, rgba(26, 123, 255, 0.3), transparent),
     radial-gradient(ellipse 38% 110% at 50% -10%, rgba(139, 90, 168, 0.28), transparent),
     radial-gradient(ellipse 38% 110% at 82% 0%, rgba(255, 61, 56, 0.24), transparent);
@@ -115,4 +115,9 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
 .welcome-banner__title {
   font-family: var(--hacf-font-heading);
   font-weight: 700;
+}
+
+.welcome-banner {
+  padding-block: 1.75rem;
+  margin-bottom: 1rem;
 }
