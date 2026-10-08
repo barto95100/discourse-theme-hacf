@@ -154,3 +154,17 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
   text-transform: inherit;
   color: inherit;
 }
+
+// ============================================================
+// Étape 6 : icônes du header plus lisibles (palette claire)
+// ============================================================
+.d-header {
+  --header_primary-medium: var(--header_primary);
+  --header_primary-high: var(--header_primary);
+}
+
+.d-header .d-icon,
+.d-header .btn-flat .d-icon,
+.d-header .icon .d-icon {
+  color: var(--header_primary);
+}
