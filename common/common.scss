@@ -195,3 +195,57 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
 .d-header .chat-header-icon:focus .d-icon {
   color: var(--quaternary) !important;
 }
+
+// ============================================================
+// Étape 4b : cartes de catégories (configurables dans les réglages)
+// ============================================================
+.hacf-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
+.hacf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid var(--primary-low);
+  border-top: 4px solid var(--hacf-card-color, var(--tertiary));
+  background: color-mix(in srgb, var(--hacf-card-color, var(--tertiary)) 8%, var(--secondary));
+  color: var(--primary);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--hacf-card-color, var(--tertiary)) 25%, transparent);
+    color: var(--primary);
+  }
+
+  &__icon .d-icon {
+    color: var(--hacf-card-color, var(--tertiary));
+    font-size: var(--font-up-2);
+  }
+
+  &__title {
+    font-family: var(--hacf-font-heading);
+    font-weight: 700;
+    font-size: var(--font-up-1);
+  }
+
+  &__desc {
+    color: var(--primary-medium);
+    font-size: var(--font-down-1);
+    line-height: 1.4;
+  }
+
+  &__count {
+    margin-top: auto;
+    font-size: var(--font-down-1);
+    font-weight: 700;
+    color: var(--primary-high);
+  }
+}

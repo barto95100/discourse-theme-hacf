@@ -1,0 +1,25 @@
+featured_categories:
+  type: objects
+  default: []
+  schema:
+    name: carte
+    properties:
+      category:
+        type: categories
+        required: true
+        validations:
+          min: 1
+          max: 1
+      title:
+        type: string
+        required: false
+        validations:
+          max_length: 60
+      description:
+        type: string
+        required: false
+        validations:
+          max_length: 160
+      icon:
+        type: icon
+        required: false
