@@ -76,3 +76,21 @@ h3,
 h4 {
   font-family: var(--hacf-font-heading);
 }
+
+// ============================================================
+// Étape 2 : header et navigation des sujets
+// ============================================================
+
+// Filet en dégradé sous le header (bleu -> violet -> rouge du logo)
+.d-header {
+  border-bottom: 3px solid transparent;
+  border-image: var(--hacf-gradient) 1;
+}
+
+// Onglet actif de la barre Categories / Latest / New / Top :
+// soulignement en dégradé au lieu d'un trait uni
+.nav-pills > li > a.active,
+.nav-pills > li > button.active {
+  border-bottom: 3px solid transparent;
+  border-image: var(--hacf-gradient) 1;
+}
