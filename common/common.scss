@@ -94,3 +94,25 @@ h4 {
   border-bottom: 3px solid transparent;
   border-image: var(--hacf-gradient) 1;
 }
+
+// ============================================================
+// Étape 3 : bannière d'accueil (halos + arbres-circuits)
+// ============================================================
+
+// Arbre-circuit du logo, inversé (il "pend" depuis le haut), en SVG intégré
+$hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' fill='none'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='20' y1='300' x2='290' y2='10'><stop offset='0' stop-color='%231A7BFF'/><stop offset='.5' stop-color='%238B5AA8'/><stop offset='1' stop-color='%23FF3D38'/></linearGradient></defs><g transform='rotate(180 150 150)' stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' opacity='.5'><path d='M150 300V92M150 232L96 178V138M150 196L204 142V104M150 92L122 64V44M150 92L178 64V36'/><circle cx='96' cy='126' r='11'/><circle cx='204' cy='92' r='11'/><circle cx='122' cy='32' r='11'/><circle cx='178' cy='24' r='11'/></g></svg>");
+
+.welcome-banner {
+  border-radius: 20px;
+  background:
+    $hacf-tree 6% -26px / 220px auto no-repeat,
+    $hacf-tree 94% -34px / 200px auto no-repeat,
+    radial-gradient(ellipse 38% 110% at 18% 0%, rgba(26, 123, 255, 0.3), transparent),
+    radial-gradient(ellipse 38% 110% at 50% -10%, rgba(139, 90, 168, 0.28), transparent),
+    radial-gradient(ellipse 38% 110% at 82% 0%, rgba(255, 61, 56, 0.24), transparent);
+}
+
+.welcome-banner__title {
+  font-family: var(--hacf-font-heading);
+  font-weight: 700;
+}
