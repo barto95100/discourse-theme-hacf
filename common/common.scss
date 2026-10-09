@@ -3116,3 +3116,78 @@ body {
 .hacf-banner {
   margin-bottom: 0;
 }
+
+// Bandeau : bouton d'action lisible en clair et en sombre
+.hacf-banner a.hacf-banner__link,
+.hacf-banner a.hacf-banner__link:link,
+.hacf-banner a.hacf-banner__link:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--hacf-banner-on) !important;
+  background: linear-gradient(
+    135deg,
+    var(--hacf-banner-c),
+    color-mix(in srgb, var(--hacf-banner-c) 62%, #a855f7)
+  );
+  box-shadow:
+    0 6px 18px color-mix(in srgb, var(--hacf-banner-c) 38%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 28%, transparent);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+
+  &::after {
+    content: "→";
+    font-weight: 700;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--hacf-banner-on) !important;
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow:
+      0 10px 26px color-mix(in srgb, var(--hacf-banner-c) 50%, transparent),
+      inset 0 1px 0 color-mix(in srgb, #fff 32%, transparent);
+
+    &::after {
+      transform: translateX(3px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--hacf-banner-c) 70%, #fff);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.hacf-banner--warning a.hacf-banner__link,
+.hacf-banner--warning a.hacf-banner__link:link,
+.hacf-banner--warning a.hacf-banner__link:visited {
+  background: linear-gradient(
+    135deg,
+    var(--hacf-banner-c),
+    color-mix(in srgb, var(--hacf-banner-c) 70%, #ef4444)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hacf-banner a.hacf-banner__link,
+  .hacf-banner a.hacf-banner__link::after {
+    transition: none;
+  }
+}
