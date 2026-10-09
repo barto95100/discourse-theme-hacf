@@ -249,3 +249,12 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
     color: var(--primary-high);
   }
 }
+
+// Cartes : description limitée à 3 lignes
+.hacf-card__desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
