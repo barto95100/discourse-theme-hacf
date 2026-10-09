@@ -136,7 +136,14 @@ export default class HacfAside extends Component {
   }
 
   get onHome() {
-    return ["discovery.latest", "discovery.categories"].includes(
+    return [
+      "discovery.latest",
+      "discovery.categories",
+      "discovery.new",
+      "discovery.top",
+      "discovery.unread",
+      "discovery.hot",
+    ].includes(
       this.router.currentRouteName
     );
   }
