@@ -3103,3 +3103,17 @@ body {
     transition: none;
   }
 }
+
+// Sélecteur de langue (desktop) : nom complet à la place du code
+@media (min-width: 769px) {
+  .d-header-icons .language-switcher-trigger .language-switcher__locale[data-full] {
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  .d-header-icons .language-switcher-trigger .language-switcher__locale[data-full]::before {
+    content: attr(data-full);
+    font-size: var(--font-0);
+    line-height: normal;
+  }
+}
