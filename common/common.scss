@@ -3213,3 +3213,16 @@ body {
     }
   }
 }
+
+// Mobile : marge à droite des listes + badge du bandeau recentré
+@media (max-width: 768px) {
+  .topic-list .topic-list-item .topic-item-metadata {
+    margin-right: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hacf-banner__badge {
+    align-self: center;
+  }
+}
