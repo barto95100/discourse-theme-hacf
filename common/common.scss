@@ -2725,9 +2725,3 @@ body:has(.hacf-home) .hacf-footer {
     transform: translateX(130px);
   }
 }
-
-/* Admin : marge intérieure pour que le texte ne colle pas au bord du panneau */
-.admin-interface #main-outlet {
-  padding-inline: 1.25rem;
-  box-sizing: border-box;
-}
