@@ -2667,3 +2667,55 @@ body {
     }
   }
 }
+
+// Menu utilisateur (avatar) : survol / focus lisibles en thème sombre
+.user-menu {
+  // lignes de la liste (notifications, messages, favoris…)
+  .quick-access-panel li:hover,
+  .quick-access-panel li:focus-within,
+  .quick-access-panel li > a:hover,
+  .quick-access-panel li > a:focus,
+  .quick-access-panel li > button:hover,
+  .quick-access-panel li > button:focus,
+  .notification:hover,
+  .notification:focus-within,
+  .notification > a:hover,
+  .notification > a:focus,
+  .notification.unread:hover > a,
+  .notification.read:hover > a,
+  .bookmark:hover,
+  .bookmark > a:hover,
+  .message:hover,
+  .message > a:hover,
+  .show-all:hover,
+  .show-all > a:hover {
+    background: color-mix(in srgb, var(--tertiary) 16%, var(--secondary)) !important;
+    color: var(--primary) !important;
+
+    * {
+      color: inherit !important;
+    }
+
+    .d-icon,
+    svg {
+      color: var(--tertiary) !important;
+    }
+  }
+
+  // colonne d'onglets à droite
+  .tabs-list .btn:hover,
+  .tabs-list .btn:focus,
+  .tabs-list .btn:focus-visible,
+  .tabs-list .btn.active,
+  .menu-tabs-container .btn:hover,
+  .menu-tabs-container .btn:focus,
+  .menu-tabs-container .btn.active {
+    background: color-mix(in srgb, var(--tertiary) 16%, var(--secondary)) !important;
+    border-radius: 10px;
+
+    .d-icon,
+    svg {
+      color: var(--tertiary) !important;
+    }
+  }
+}
