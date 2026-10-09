@@ -1406,3 +1406,10 @@ $hacf-circ-bottom: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/sv
 .signup-fullpage .login-body::after {
   display: none;
 }
+
+/* Retrait de l'accroche qui cassait la mise en page */
+.login-fullpage .login-welcome-header::after,
+html[lang^="en"] .login-fullpage .login-welcome-header::after {
+  content: none !important;
+  display: none !important;
+}
