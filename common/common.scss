@@ -449,3 +449,57 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
     text-transform: capitalize;
   }
 }
+
+// ============================================================
+// Mise en page : liste à gauche, widgets dans une colonne à droite
+// (repasse en une colonne si la place manque)
+// ============================================================
+.list-container:has(.hacf-hot, .hacf-events) {
+  container-type: inline-size;
+  container-name: hacf-list;
+}
+
+@container hacf-list (min-width: 900px) {
+  .row.full-width:has(> .hacf-hot, > .hacf-events) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-rows: auto 1fr;
+    column-gap: 1.5rem;
+    align-items: start;
+
+    > #list-area {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    > .hacf-hot,
+    > .hacf-events {
+      grid-column: 2;
+      margin: 0 0 1rem;
+    }
+
+    > .hacf-hot {
+      grid-row: 1;
+    }
+
+    > .hacf-events {
+      grid-row: 2;
+    }
+  }
+
+  .hacf-hot__list,
+  .hacf-events__list {
+    grid-template-columns: 1fr;
+  }
+
+  .hacf-hot__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .hacf-hot__link {
+    white-space: normal;
+    overflow: visible;
+  }
+}
