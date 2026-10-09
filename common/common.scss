@@ -2664,3 +2664,30 @@ body {
     text-decoration: underline;
   }
 }
+
+/* Footer : visible uniquement sur l'accueil + alignement avec la sidebar */
+.hacf-footer {
+  display: none;
+  --hf-sw: 0px;
+  --hf-pad: max(1rem, calc((100% - var(--hf-sw) - 1110px) / 2));
+  max-width: none;
+  margin: 3rem 0 0;
+  padding: 2.2rem var(--hf-pad) 1.2rem calc(var(--hf-sw) + var(--hf-pad));
+
+  &::before {
+    left: calc(var(--hf-sw) + var(--hf-pad));
+    right: var(--hf-pad);
+  }
+}
+
+body:has(.hacf-home) .hacf-footer {
+  display: block;
+}
+
+.has-sidebar-page .hacf-footer {
+  --hf-sw: var(--d-sidebar-width, 212px);
+}
+
+.mobile-view .hacf-footer {
+  --hf-sw: 0px;
+}
