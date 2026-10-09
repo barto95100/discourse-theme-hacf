@@ -2435,3 +2435,25 @@ body {
     font-size: var(--font-down-1);
   }
 }
+
+// Accueil : le panneau événements s'étire à la hauteur des publications
+.hacf-home {
+  grid-template-rows: auto auto 1fr auto auto;
+
+  .hacf-upcoming {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+
+    .hacf-upcoming__all {
+      margin-top: auto;
+      padding-top: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .hacf-home {
+    grid-template-rows: none;
+  }
+}
