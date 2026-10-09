@@ -75,3 +75,15 @@ top_contributors_leaderboard_id:
   type: integer
   default: 2
   min: 1
+
+presence_url:
+  type: string
+  default: "https://n8n-new.hacf.fr/webhook/hacf-presence"
+  description: "Adresse JSON de la liste des membres en ligne (vide = fonction désactivée)"
+
+presence_max_avatars:
+  type: integer
+  default: 20
+  min: 1
+  max: 50
+  description: "Nombre maximum d'avatars affichés dans « En ligne maintenant » (le total reste affiché)"
