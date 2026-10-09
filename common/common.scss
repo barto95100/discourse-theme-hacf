@@ -3096,3 +3096,23 @@ body {
     align-self: auto;
   }
 }
+
+// Hero de bienvenue : moins d'espace sous la recherche / le bandeau
+.welcome-banner {
+  min-height: 0;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+
+  .welcome-banner__wrap {
+    padding-bottom: 0;
+  }
+}
+
+.welcome-banner + * ,
+.welcome-banner ~ .wrap {
+  margin-top: 0;
+}
+
+.hacf-banner {
+  margin-bottom: 0;
+}
