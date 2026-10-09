@@ -990,3 +990,60 @@ aside.d-post-accordion.accepted-answers {
 .accepted-answers .accepted-answers__title {
   background: transparent !important;
 }
+
+/* ===== Animations discrètes au survol ===== */
+.hacf-card,
+.hacf-top__link,
+.hacf-hot a,
+.hacf-events a,
+.topic-list-item,
+.hacf-top__avatar {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.hacf-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--hacf-card-color, var(--tertiary)) 22%, transparent);
+}
+
+.hacf-top__link:hover .hacf-top__avatar {
+  transform: scale(1.08);
+}
+
+.hacf-hot a:hover,
+.hacf-events a:hover,
+.hacf-top__link:hover {
+  background: color-mix(in srgb, var(--tertiary) 7%, transparent);
+}
+
+.topic-list-item:hover {
+  background: color-mix(in srgb, var(--tertiary) 5%, transparent);
+}
+
+.btn-primary {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--tertiary) 28%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hacf-card,
+  .hacf-top__link,
+  .hacf-hot a,
+  .hacf-events a,
+  .topic-list-item,
+  .hacf-top__avatar,
+  .btn-primary {
+    transition: none;
+  }
+  .hacf-card:hover,
+  .btn-primary:hover,
+  .hacf-top__link:hover .hacf-top__avatar {
+    transform: none;
+  }
+}
