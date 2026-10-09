@@ -68,13 +68,15 @@ export default class HacfHome extends Component {
         return k ? 2 : 8;
       };
       this.team = (data?.members || [])
-        .filter((m) => m.username && m.username !== "Equipe_HACF")
+        .filter(
+          (m) => m.username && m.username !== "Equipe_HACF" && rank(m.title) < 9
+        )
         .sort(
           (a, b) =>
             rank(a.title) - rank(b.title) ||
             a.username.localeCompare(b.username)
         )
-        .slice(0, 6)
+        .slice(0, 12)
         .map((m) => ({
           name: m.name || m.username,
           url: `/u/${m.username}`,
@@ -251,17 +253,6 @@ export default class HacfHome extends Component {
             {{/if}}
           </div>
         {{/if}}
-      </section>
-
-      <section class="hacf-pillars">
-        {{#each this.pillars as |pillar|}}
-          <a class="hacf-pillar" href={{pillar.url}}>
-            <span class="hacf-pillar__icon">{{icon pillar.icon}}</span>
-            <h3 class="hacf-pillar__title">{{pillar.name}}</h3>
-            <p class="hacf-pillar__desc">{{pillar.description}}</p>
-            <span class="hacf-pillar__count">{{pillar.counts}}</span>
-          </a>
-        {{/each}}
       </section>
 
       {{#if this.stats}}

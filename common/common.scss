@@ -2387,3 +2387,26 @@ body {
 .hacf-home .hacf-team .hacf-team__list {
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
+
+// Accueil : sans les pastilles de catégories, la grille remonte d'une ligne
+.hacf-home {
+  .hacf-news        { grid-row: 2 / span 2; }
+  .hacf-home__stats { grid-row: 2; }
+  .hacf-upcoming    { grid-row: 3; }
+  .hacf-team        { grid-row: 4; }
+  .hacf-steps       { grid-row: 5; }
+
+  &:not(:has(.hacf-upcoming)) .hacf-team {
+    grid-row: 4;
+  }
+}
+
+.hacf-home .hacf-team .hacf-team__list {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.6rem;
+}
+
+.hacf-team-member__avatar {
+  width: 48px;
+  height: 48px;
+}
