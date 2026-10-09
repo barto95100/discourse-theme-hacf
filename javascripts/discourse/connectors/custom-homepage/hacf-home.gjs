@@ -12,10 +12,13 @@ export default class HacfHome extends Component {
 
   constructor() {
     super(...arguments);
+    this.pillars = this.buildPillars();
     this.loadStats();
   }
 
-  get pillars() {
+  pillars = [];
+
+  buildPillars() {
     try {
       return (settings.featured_categories || [])
         .map((item) => {
@@ -25,7 +28,7 @@ export default class HacfHome extends Component {
             ? {
                 name: cat.name,
                 url: cat.url,
-                description: item.description || "",
+                description: String(item.description ?? ""),
               }
             : null;
         })
