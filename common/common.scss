@@ -2748,3 +2748,18 @@ body {
     }
   }
 }
+
+// Menu utilisateur : le fond blanc vient de l'icône (--d-hover), on le retire
+.user-menu.revamped .tabs-list {
+  .btn:hover .d-icon,
+  .btn:focus .d-icon,
+  .btn:focus-visible .d-icon,
+  .btn:not(.active):hover .d-icon,
+  .btn:not(.active):focus .d-icon,
+  .btn:not(.active):focus-visible .d-icon,
+  button:not(.active):focus-visible .d-icon,
+  .btn.active .d-icon {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+}
