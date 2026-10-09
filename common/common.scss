@@ -1075,3 +1075,12 @@ aside.d-post-accordion.accepted-answers {
 .welcome-banner__title {
   margin-bottom: 1.2rem;
 }
+
+/* Icône des boutons pleins de l'en-tête (Se connecter / S'inscrire) */
+.d-header .btn-primary .d-icon,
+.d-header .btn-primary:hover .d-icon,
+.d-header .btn-primary:focus .d-icon,
+.d-header .login-button .d-icon,
+.d-header .login-button:hover .d-icon {
+  color: inherit !important;
+}
