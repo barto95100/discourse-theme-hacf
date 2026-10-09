@@ -261,7 +261,11 @@ export default class HacfHome extends Component {
                 </a>
               {{/each}}
             </span>
-            {{#if this.membersLabel}}
+            {{#if this.currentUser}}
+              <a class="hacf-home__join hacf-home__guidelines" href="/guidelines">{{i18n
+                  (themePrefix "home_guidelines")
+                }}</a>
+            {{else if this.membersLabel}}
               <span class="hacf-home__join">{{i18n
                   (themePrefix "home_join")
                   members=this.membersLabel

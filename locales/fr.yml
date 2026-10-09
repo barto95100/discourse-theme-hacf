@@ -19,6 +19,7 @@ fr:
   home_welcome_back: "Content de te revoir, %{username}"
   home_contrib_title: "Ils font vivre la communauté cette semaine"
   home_join: "Rejoins nos %{members} membres"
+  home_guidelines: "Lignes directrices de la communauté"
   home_articles_title: "Dernières publications"
   home_articles_all: "Voir toutes les publications"
   home_events_title: "Événements à venir"

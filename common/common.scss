@@ -2655,3 +2655,12 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.hacf-home__guidelines {
+  color: var(--primary-medium);
+  text-decoration: none;
+  &:hover {
+    color: var(--tertiary);
+    text-decoration: underline;
+  }
+}
