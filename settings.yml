@@ -128,3 +128,8 @@ banner_dismissible:
   type: bool
   default: true
   description: "Bandeau d'annonce : permettre aux membres de le fermer (réapparaît si le message change)"
+
+banner_badge:
+  type: string
+  default: "Nouveau"
+  description: "Bandeau d'annonce : pastille avant le message (ex. Nouveau, Info, Important ; vide = aucune)"

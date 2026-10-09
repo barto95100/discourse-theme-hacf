@@ -2923,20 +2923,33 @@ body {
   }
 }
 
-// Bandeau d'annonce de l'équipe
+// Bandeau d'annonce de l'équipe (sous la barre de recherche)
 .hacf-banner {
   --hacf-banner-c: var(--tertiary);
+  --hacf-banner-on: #fff;
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: 0 0 1rem;
-  padding: 0.8rem 1rem;
-  border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--hacf-banner-c) 35%, transparent);
-  border-left: 4px solid var(--hacf-banner-c);
-  background: color-mix(in srgb, var(--hacf-banner-c) 10%, var(--secondary));
-  box-shadow: 0 6px 24px color-mix(in srgb, var(--hacf-banner-c) 12%, transparent);
+  gap: 1rem;
+  width: 100%;
+  max-width: 48rem;
+  margin: 1.25rem auto 0;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--hacf-banner-c) 45%, transparent);
+  background:
+    radial-gradient(
+      120% 160% at 0% 0%,
+      color-mix(in srgb, var(--hacf-banner-c) 24%, transparent),
+      transparent 60%
+    ),
+    color-mix(in srgb, var(--hacf-banner-c) 8%, var(--secondary));
+  box-shadow:
+    0 10px 36px color-mix(in srgb, var(--hacf-banner-c) 22%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 8%, transparent);
   color: var(--primary);
+  text-align: left;
+  animation: hacf-banner-in 0.5s ease both;
 
   &--success {
     --hacf-banner-c: #22c55e;
@@ -2944,54 +2957,114 @@ body {
 
   &--warning {
     --hacf-banner-c: #f59e0b;
+    --hacf-banner-on: #1b1305;
   }
 
   &__icon {
     flex: none;
-    color: var(--hacf-banner-c);
-    font-size: 1.15em;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    font-size: 1.15rem;
+    color: var(--hacf-banner-c);
+    background: color-mix(in srgb, var(--hacf-banner-c) 16%, transparent);
+    box-shadow: 0 0 22px color-mix(in srgb, var(--hacf-banner-c) 40%, transparent);
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  &__badge {
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: var(--font-down-2);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--hacf-banner-on);
+    background: var(--hacf-banner-c);
   }
 
   &__text {
-    flex: 1 1 auto;
-    min-width: 0;
+    font-size: var(--font-up-1);
+    font-weight: 500;
+    line-height: 1.4;
     overflow-wrap: anywhere;
   }
 
   &__link {
     flex: none;
-    padding: 0.35rem 0.8rem;
+    padding: 0.55rem 1.1rem;
     border-radius: 999px;
-    font-weight: 600;
-    color: var(--hacf-banner-c);
-    border: 1px solid color-mix(in srgb, var(--hacf-banner-c) 55%, transparent);
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--hacf-banner-on);
+    background: var(--hacf-banner-c);
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--hacf-banner-c) 40%, transparent);
     text-decoration: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
 
     &:hover {
-      background: color-mix(in srgb, var(--hacf-banner-c) 16%, transparent);
+      color: var(--hacf-banner-on);
+      filter: brightness(1.1);
+      transform: translateY(-1px);
     }
   }
 
   &__close {
     flex: none;
+    align-self: flex-start;
     background: transparent;
     border: 0;
-    padding: 0.35rem;
+    padding: 0.3rem;
     border-radius: 8px;
-    color: var(--primary-high);
+    color: var(--primary-medium);
     cursor: pointer;
 
     &:hover {
-      background: color-mix(in srgb, var(--hacf-banner-c) 16%, transparent);
+      color: var(--primary);
+      background: color-mix(in srgb, var(--hacf-banner-c) 18%, transparent);
     }
   }
 
   @media (max-width: 600px) {
     flex-wrap: wrap;
+    padding: 0.9rem 1rem;
 
-    &__text {
-      flex-basis: calc(100% - 4.5rem);
+    &__body {
+      flex-basis: calc(100% - 6rem);
     }
+
+    &__link {
+      order: 3;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes hacf-banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hacf-banner {
+    animation: none;
   }
 }
