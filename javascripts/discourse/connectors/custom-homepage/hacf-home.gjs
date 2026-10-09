@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
+import HacfPillars from "../../components/hacf-pillars";
 import { i18n } from "discourse-i18n";
 
 export default class HacfHome extends Component {
@@ -63,6 +64,8 @@ export default class HacfHome extends Component {
           {{/each}}
         </section>
       {{/if}}
+
+      <HacfPillars />
     </div>
   </template>
 }

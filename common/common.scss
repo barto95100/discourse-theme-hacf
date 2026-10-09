@@ -1565,3 +1565,65 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   background-clip: border-box;
   color: var(--tertiary);
 }
+
+/* Page d'accueil : les trois piliers */
+.hacf-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.hacf-pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  background: var(--hacf-card-bg, var(--header_background));
+  border: 1px solid var(--primary-low);
+  border-top: 3px solid var(--hacf-card-color, var(--tertiary));
+  border-radius: 14px;
+  box-shadow: var(--hacf-card-shadow, none);
+  color: var(--primary);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.hacf-pillar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--hacf-card-color, var(--tertiary)) 22%, transparent);
+  color: var(--primary);
+}
+.hacf-pillar__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  color: var(--hacf-card-color, var(--tertiary));
+  background: color-mix(in srgb, var(--hacf-card-color, var(--tertiary)) 14%, transparent);
+}
+.hacf-pillar__title {
+  font-family: var(--hacf-font-heading);
+  margin: 0 0 0.4rem;
+}
+.hacf-pillar__desc {
+  margin: 0 0 0.75rem;
+  color: var(--primary-high);
+  font-size: var(--font-down-1);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hacf-pillar__count {
+  margin-top: auto;
+  font-size: var(--font-down-2);
+  color: var(--primary-medium);
+}
+@media (max-width: 800px) {
+  .hacf-pillars {
+    grid-template-columns: 1fr;
+  }
+}
