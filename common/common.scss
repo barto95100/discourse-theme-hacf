@@ -1070,3 +1070,8 @@ aside.d-post-accordion.accepted-answers {
     display: none;
   }
 }
+
+/* Bannière : plus d'espace entre le titre et la recherche */
+.welcome-banner__title {
+  margin-bottom: 1.2rem;
+}
