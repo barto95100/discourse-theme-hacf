@@ -14,17 +14,20 @@ const fmtWhen = new Intl.DateTimeFormat("fr-FR", {
   minute: "2-digit",
 });
 const fmtWhenAllDay = new Intl.DateTimeFormat("fr-FR", { weekday: "long" });
+const fmtNumber = new Intl.NumberFormat("fr-FR");
 
 export default class HacfAside extends Component {
   @service router;
 
   @tracked hot = [];
   @tracked events = [];
+  @tracked contributors = [];
 
   constructor() {
     super(...arguments);
     this.loadHot();
     this.loadEvents();
+    this.loadContributors();
   }
 
   async loadHot() {
@@ -93,6 +96,36 @@ export default class HacfAside extends Component {
       }));
   }
 
+  async loadContributors() {
+    if (!settings.show_top_contributors) {
+      return;
+    }
+    const exclude = (settings.top_contributors_exclude || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .join(",");
+    let url = `/directory_items.json?period=weekly&order=likes_received&limit=${settings.top_contributors_count}`;
+    if (exclude) {
+      url += `&exclude_usernames=${encodeURIComponent(exclude)}`;
+    }
+    let data;
+    try {
+      data = await ajax(url);
+    } catch {
+      return;
+    }
+    this.contributors = (data?.directory_items || [])
+      .filter((i) => (i.likes_received || 0) > 0 || (i.post_count || 0) > 0)
+      .slice(0, settings.top_contributors_count)
+      .map((i) => ({
+        url: `/u/${i.user.username}`,
+        name: i.user.username,
+        avatar: i.user.avatar_template?.replace("{size}", "64"),
+        score: fmtNumber.format(i.likes_received ?? i.post_count ?? 0),
+      }));
+  }
+
   get onHome() {
     return ["discovery.latest", "discovery.categories"].includes(
       this.router.currentRouteName
@@ -107,8 +140,12 @@ export default class HacfAside extends Component {
     return this.onHome && this.events.length > 0;
   }
 
+  get showContributors() {
+    return this.onHome && this.contributors.length > 0;
+  }
+
   get visible() {
-    return this.showHot || this.showEvents;
+    return this.showHot || this.showEvents || this.showContributors;
   }
 
   <template>
@@ -157,6 +194,33 @@ export default class HacfAside extends Component {
                 </li>
               {{/each}}
             </ul>
+          </section>
+        {{/if}}
+
+        {{#if this.showContributors}}
+          <section class="hacf-top">
+            <h2 class="hacf-top__title">{{icon settings.top_contributors_icon}}
+              Meilleurs contributeurs</h2>
+            <ul class="hacf-top__list">
+              {{#each this.contributors as |c|}}
+                <li class="hacf-top__item">
+                  <a class="hacf-top__link" href={{c.url}}>
+                    <img
+                      class="hacf-top__avatar"
+                      src={{c.avatar}}
+                      width="32"
+                      height="32"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span class="hacf-top__name">{{c.name}}</span>
+                    <span class="hacf-top__score">{{icon "heart"}}
+                      {{c.score}}</span>
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+            <p class="hacf-top__note">Cette semaine · « j'aime » reçus</p>
           </section>
         {{/if}}
       </aside>

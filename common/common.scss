@@ -778,3 +778,93 @@ body.has-sidebar-page {
     font-size: var(--font-down-1);
   }
 }
+
+// ============================================================
+// Meilleurs contributeurs de la semaine
+// ============================================================
+.hacf-top {
+  overflow: hidden;
+  background: var(--hacf-card-bg);
+  border: 1px solid var(--primary-low);
+  border-radius: 14px;
+  box-shadow: var(--hacf-card-shadow);
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--primary-low);
+    font-size: var(--font-0);
+
+    .d-icon {
+      color: var(--hacf-violet);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0 18px;
+    list-style: none;
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--primary-low);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__link,
+  &__link:visited {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.55rem 0;
+    color: var(--primary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--quaternary);
+    }
+  }
+
+  &__avatar {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  &__score {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-shrink: 0;
+    font-size: var(--font-down-1);
+    font-weight: 700;
+    color: var(--primary-high);
+
+    .d-icon {
+      color: var(--hacf-red);
+    }
+  }
+
+  &__note {
+    margin: 0;
+    padding: 0 18px 12px;
+    font-size: var(--font-down-2);
+    color: var(--primary-medium);
+  }
+}
