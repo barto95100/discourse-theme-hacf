@@ -107,9 +107,9 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
   background:
     $hacf-tree 6% -14px / 190px auto no-repeat,
     $hacf-tree 94% -22px / 170px auto no-repeat,
-    radial-gradient(ellipse 38% 110% at 18% 0%, rgba(26, 123, 255, 0.3), transparent),
-    radial-gradient(ellipse 38% 110% at 50% -10%, rgba(139, 90, 168, 0.28), transparent),
-    radial-gradient(ellipse 38% 110% at 82% 0%, rgba(255, 61, 56, 0.24), transparent);
+    radial-gradient(ellipse 55% 120% at 15% 0%, rgba(26, 123, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 55% 120% at 50% -15%, rgba(139, 90, 168, 0.14), transparent 70%),
+    radial-gradient(ellipse 55% 120% at 85% 0%, rgba(255, 61, 56, 0.12), transparent 70%);
 }
 
 .welcome-banner__title {
