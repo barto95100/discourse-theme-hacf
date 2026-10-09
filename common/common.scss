@@ -2879,3 +2879,17 @@ body {
     }
   }
 }
+
+// Participants : toujours en ligne, jamais écrasés par le titre
+.topic-list {
+  .posters {
+    white-space: nowrap;
+    width: 1%;
+    min-width: 10rem;
+
+    a {
+      display: inline-block;
+      float: none;
+    }
+  }
+}
