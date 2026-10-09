@@ -3189,3 +3189,27 @@ body {
     }
   }
 }
+
+// Mobile : compteur de réponses en haut à droite, sans chevaucher titre ni âge
+@media (max-width: 768px) {
+  .topic-list .topic-list-item .topic-item-metadata {
+    position: relative;
+
+    > .pull-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      float: none;
+      margin: 0;
+    }
+
+    .main-link {
+      padding-right: 2.5rem;
+    }
+
+    .posts-map .badge-posts .number {
+      font-size: var(--font-up-1);
+      line-height: 1.2;
+    }
+  }
+}
