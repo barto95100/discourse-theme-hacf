@@ -3226,3 +3226,32 @@ body {
     align-self: center;
   }
 }
+
+// Petits écrans : le logo rétrécit au lieu de passer sous « Se connecter »
+@media (max-width: 480px) {
+  .d-header {
+    .home-logo-wrapper-outlet,
+    .title,
+    .title a {
+      min-width: 0;
+      flex: 0 1 auto;
+      overflow: hidden;
+    }
+
+    .title img,
+    #site-logo,
+    .logo-small {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 2rem;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .header-buttons {
+      flex: none;
+    }
+  }
+}
