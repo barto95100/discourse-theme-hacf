@@ -753,3 +753,28 @@ body.has-sidebar-page {
     font-weight: 500;
   }
 }
+
+// ============================================================
+// Cartes de catégories : contenu centré, hauteur réduite
+// ============================================================
+.hacf-card {
+  grid-template-columns: auto auto;
+  justify-content: center;
+  column-gap: 0.7rem;
+  row-gap: 0.3rem;
+  padding: 0.7rem 1rem;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  &__title {
+    font-size: var(--font-0);
+  }
+
+  &__count {
+    font-size: var(--font-down-1);
+  }
+}
