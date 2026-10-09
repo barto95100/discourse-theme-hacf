@@ -2767,3 +2767,8 @@ body:has(.hacf-home) .hacf-footer {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 0.9rem);
   mask-image: linear-gradient(to bottom, transparent 0, #000 0.9rem);
 }
+
+/* Sidebar admin : le cœur impose un fond sur .admin-panel, on le rend transparent */
+.admin-area .sidebar-wrapper .sidebar-sections.admin-panel {
+  background: transparent;
+}
