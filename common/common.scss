@@ -1145,3 +1145,67 @@ aside.d-post-accordion.accepted-answers {
   background: color-mix(in srgb, var(--tertiary) 16%, var(--secondary)) !important;
   color: var(--primary) !important;
 }
+
+/* ===== Connexion / inscription : carte ===== */
+.login-fullpage .login-body,
+.signup-fullpage .signup-body,
+.signup-fullpage .login-body {
+  background: var(--hacf-card-bg, var(--header_background));
+  border: 1px solid var(--primary-low);
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #1a7bff, #8b5aa8, #ff3d38) 1;
+  border-radius: 16px;
+  box-shadow: var(--hacf-card-shadow, 0 10px 30px rgba(0, 0, 0, 0.18));
+  padding: 2rem 2.25rem;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+/* Titre */
+.login-fullpage .login-title,
+.signup-fullpage h1 {
+  font-family: var(--hacf-font-heading);
+  background: linear-gradient(90deg, #1a7bff, #8b5aa8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bouton principal en dégradé */
+.login-fullpage .btn-primary,
+.signup-fullpage .btn-primary {
+  background: linear-gradient(90deg, #1a7bff, #8b5aa8);
+  border: 0;
+  color: #fff;
+  border-radius: 10px;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.login-fullpage .btn-primary:hover,
+.signup-fullpage .btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* Champs arrondis */
+.login-fullpage input[type="text"],
+.login-fullpage input[type="password"],
+.login-fullpage input[type="email"],
+.signup-fullpage input[type="text"],
+.signup-fullpage input[type="password"],
+.signup-fullpage input[type="email"] {
+  border-radius: 10px;
+}
+
+/* Boutons sociaux : adoucis, arrondis */
+.login-fullpage .btn-social,
+.signup-fullpage .btn-social {
+  border-radius: 10px;
+  border: 1px solid var(--primary-low);
+  box-shadow: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.login-fullpage .btn-social:hover,
+.signup-fullpage .btn-social:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26, 123, 255, 0.2);
+}
