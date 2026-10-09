@@ -1912,9 +1912,11 @@ html {
   border-radius: 12px !important;
 }
 
-$hacf-tree-xl: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 420' fill='none'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='20' y1='420' x2='290' y2='10'><stop offset='0' stop-color='%231A7BFF'/><stop offset='.5' stop-color='%238B5AA8'/><stop offset='1' stop-color='%23FF3D38'/></linearGradient></defs><g stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' opacity='.5'><path d='M150 0V330M150 70L100 120V190M150 70L200 120V160M150 140L60 230V290M150 140L240 230V270M150 210L120 250V330M150 210L180 250V350M150 330V380M100 120L60 90V50M200 120L245 85V60'/><circle cx='100' cy='201' r='11'/><circle cx='200' cy='171' r='11'/><circle cx='60' cy='301' r='11'/><circle cx='240' cy='281' r='11'/><circle cx='120' cy='341' r='11'/><circle cx='180' cy='361' r='11'/><circle cx='150' cy='391' r='11'/><circle cx='60' cy='39' r='11'/><circle cx='245' cy='49' r='11'/></g></svg>");
+$hacf-tree-a: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 420' fill='none'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='20' y1='420' x2='290' y2='10'><stop offset='0' stop-color='%231A7BFF'/><stop offset='.5' stop-color='%238B5AA8'/><stop offset='1' stop-color='%23FF3D38'/></linearGradient></defs><g stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' opacity='.5'><path d='M150 0V330M150 70L100 120V150M150 70L200 120V160M150 140L60 230V290M150 140L240 230V270M150 210L120 250V330M150 210L180 250V350M150 330V380'/><circle cx='100' cy='161' r='11'/><circle cx='200' cy='171' r='11'/><circle cx='60' cy='301' r='11'/><circle cx='240' cy='281' r='11'/><circle cx='120' cy='341' r='11'/><circle cx='180' cy='361' r='11'/><circle cx='150' cy='391' r='11'/></g></svg>");
 
-// Arbres circuits : un de chaque côté du contenu, suspendus au header
+$hacf-tree-b: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 380' fill='none'><defs><linearGradient id='g' gradientUnits='userSpaceOnUse' x1='20' y1='380' x2='290' y2='10'><stop offset='0' stop-color='%231A7BFF'/><stop offset='.5' stop-color='%238B5AA8'/><stop offset='1' stop-color='%23FF3D38'/></linearGradient></defs><g stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' opacity='.5'><path d='M150 0V300M150 50L205 105V135M150 90L90 150V215M150 120L230 200V250M150 180L180 215V300M150 180L115 215V260M150 300V350'/><circle cx='205' cy='146' r='11'/><circle cx='90' cy='226' r='11'/><circle cx='230' cy='261' r='11'/><circle cx='180' cy='311' r='11'/><circle cx='115' cy='271' r='11'/><circle cx='150' cy='361' r='11'/></g></svg>");
+
+// Arbres circuits : un de chaque côté du contenu (modèles différents), suspendus au header
 body {
   overflow-x: clip;
 }
@@ -1933,11 +1935,11 @@ body {
     pointer-events: none;
     opacity: 0.6;
     background-repeat: no-repeat;
-    background-image: $hacf-tree-xl, $hacf-tree-xl;
+    background-image: $hacf-tree-a, $hacf-tree-b;
     background-position:
       left calc(50% - 655px) top 0,
-      right calc(50% - 655px) top 0;
-    background-size: 220px auto, 220px auto;
+      right calc(50% - 645px) top 0;
+    background-size: 220px auto, 200px auto;
     display: none;
 
     @media (min-width: 1600px) {
