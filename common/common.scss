@@ -1921,25 +1921,42 @@ html {
     content: "";
     position: absolute;
     top: 0;
-    width: 200px;
-    height: 200px;
+    left: 0;
+    right: 0;
+    height: 340px;
     z-index: -1;
     pointer-events: none;
-    background: $hacf-tree center / contain no-repeat;
+    background-repeat: no-repeat;
+    display: none;
   }
 
+  // Arbres principaux (ronds du bas alignés sur les bords du contenu) + petits arbres proches du centre
   &::before {
-    left: calc(50% - 570px);
+    background-image: $hacf-tree, $hacf-tree, $hacf-tree, $hacf-tree;
+    background-position:
+      left calc(50% - 645px) top 0,
+      right calc(50% - 645px) top 0,
+      left calc(50% - 430px) top 0,
+      right calc(50% - 430px) top 0;
+    background-size: 200px auto, 200px auto, 100px auto, 100px auto;
+
+    @media (min-width: 1500px) {
+      display: block;
+    }
   }
 
+  // Arbres en plus, plus grands et plus à l'extérieur (grands écrans seulement)
   &::after {
-    right: calc(50% - 570px);
-  }
+    background-image: $hacf-tree, $hacf-tree, $hacf-tree, $hacf-tree;
+    background-position:
+      left calc(50% - 860px) top 30px,
+      right calc(50% - 860px) top 30px,
+      left calc(50% - 720px) top 190px,
+      right calc(50% - 720px) top 190px;
+    background-size: 280px auto, 280px auto, 120px auto, 120px auto;
 
-  @media (max-width: 1100px) {
-    &::before,
-    &::after {
-      display: none;
+    @media (min-width: 1850px) {
+      display: block;
     }
   }
 }
