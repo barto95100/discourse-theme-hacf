@@ -503,3 +503,94 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
     overflow: visible;
   }
 }
+
+// ============================================================
+// Harmonisation : même style de carte partout (comme les maquettes)
+// ============================================================
+:root {
+  --hacf-card-bg: var(--header_background);
+  --hacf-card-shadow: 0 6px 20px color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+// La liste des discussions dans une carte arrondie
+.list-container #list-area {
+  background: var(--hacf-card-bg);
+  border: 1px solid var(--primary-low);
+  border-radius: 14px;
+  box-shadow: var(--hacf-card-shadow);
+  overflow: hidden;
+}
+
+// Moins de bruit : pas d'extrait de message dans la liste
+.list-container #list-area .topic-excerpt {
+  display: none;
+}
+
+// Cartes de catégories
+.hacf-card {
+  background: var(--hacf-card-bg);
+  border: 1px solid var(--primary-low);
+  border-top: 4px solid var(--hacf-card-color, var(--tertiary));
+  border-radius: 14px;
+  box-shadow: var(--hacf-card-shadow);
+}
+
+// Widgets de droite : carte + titre séparé par un filet
+.hacf-hot,
+.hacf-events {
+  padding: 0;
+  overflow: hidden;
+  background: var(--hacf-card-bg);
+  border: 1px solid var(--primary-low);
+  border-radius: 14px;
+  box-shadow: var(--hacf-card-shadow);
+}
+
+.hacf-hot__title,
+.hacf-events__title {
+  margin: 0;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--primary-low);
+  font-size: var(--font-0);
+}
+
+.hacf-hot__list {
+  padding: 0 18px;
+  gap: 0 1.5rem;
+}
+
+.hacf-hot__item:last-child {
+  border-bottom: 0;
+}
+
+.hacf-events__list {
+  padding: 0 18px;
+  gap: 0;
+}
+
+.hacf-events__item {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--primary-low);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.hacf-events__link,
+.hacf-events__link:visited {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+// Pastille de date : cadre fin, mois en rouge
+.hacf-events__date {
+  background: none;
+  border: 1px solid var(--primary-low);
+  color: var(--primary);
+}
+
+.hacf-events__month {
+  color: var(--hacf-red);
+}
