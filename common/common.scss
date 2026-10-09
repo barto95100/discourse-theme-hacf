@@ -1627,3 +1627,20 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
     grid-template-columns: 1fr;
   }
 }
+
+// Piliers de l'accueil : couleur uniforme (liens visités / survol / focus)
+.hacf-pillar,
+.hacf-pillar:visited,
+.hacf-pillar:hover,
+.hacf-pillar:focus,
+.hacf-pillar:active {
+  color: var(--primary);
+  text-decoration: none;
+
+  .hacf-pillar__title {
+    color: var(--primary);
+  }
+  .hacf-pillar__desc {
+    color: var(--primary-high);
+  }
+}
