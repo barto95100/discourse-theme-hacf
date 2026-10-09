@@ -1721,9 +1721,7 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   }
 }
 
-.hacf-upcoming-item,
-.hacf-upcoming-item:visited,
-.hacf-upcoming-item:hover {
+.hacf-upcoming-item {
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -1734,6 +1732,13 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   color: var(--primary);
   text-decoration: none;
   transition: transform 0.2s ease, border-color 0.2s ease;
+
+  &:visited,
+  &:hover,
+  &:focus {
+    color: var(--primary);
+    text-decoration: none;
+  }
 
   &:hover {
     transform: translateY(-2px);
