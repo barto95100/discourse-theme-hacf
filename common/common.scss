@@ -672,3 +672,28 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
     }
   }
 }
+
+// ============================================================
+// Cartes de catégories : sans description
+// ============================================================
+.hacf-card__desc {
+  display: none;
+}
+
+// ============================================================
+// Sidebar collée à gauche, contenu centré dans l'espace restant
+// ============================================================
+body.has-sidebar-page {
+  --hacf-content-max: 1280px;
+
+  .wrap,
+  .d-header-wrap .wrap {
+    max-width: none;
+  }
+
+  #main-outlet {
+    width: 100%;
+    max-width: var(--hacf-content-max);
+    margin-inline: auto;
+  }
+}
