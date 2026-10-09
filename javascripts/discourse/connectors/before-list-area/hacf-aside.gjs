@@ -5,16 +5,10 @@ import { htmlSafe } from "@ember/template";
 import icon from "discourse/helpers/d-icon";
 import { ajax } from "discourse/lib/ajax";
 import Category from "discourse/models/category";
+import I18n, { i18n } from "discourse-i18n";
 
-const fmtDay = new Intl.DateTimeFormat("fr-FR", { day: "numeric" });
-const fmtMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
-const fmtWhen = new Intl.DateTimeFormat("fr-FR", {
-  weekday: "long",
-  hour: "2-digit",
-  minute: "2-digit",
-});
-const fmtWhenAllDay = new Intl.DateTimeFormat("fr-FR", { weekday: "long" });
-const fmtNumber = new Intl.NumberFormat("fr-FR");
+// La langue de l'utilisateur pilote aussi les dates et les nombres
+const locale = () => (I18n.locale || "fr").replace("_", "-");
 
 export default class HacfAside extends Component {
   @service router;
@@ -85,6 +79,17 @@ export default class HacfAside extends Component {
       }
     }
     items.sort((a, b) => a.start - b.start);
+
+    const l = locale();
+    const fmtDay = new Intl.DateTimeFormat(l, { day: "numeric" });
+    const fmtMonth = new Intl.DateTimeFormat(l, { month: "short" });
+    const fmtWhen = new Intl.DateTimeFormat(l, {
+      weekday: "long",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    const fmtWhenAllDay = new Intl.DateTimeFormat(l, { weekday: "long" });
+
     this.events = items
       .slice(0, settings.upcoming_events_count)
       .map(({ ev, start, allDay }) => ({
@@ -115,6 +120,7 @@ export default class HacfAside extends Component {
     } catch {
       return;
     }
+    const fmtNumber = new Intl.NumberFormat(locale());
     this.contributors = (data?.directory_items || [])
       .filter((i) => (i.likes_received || 0) > 0 || (i.post_count || 0) > 0)
       .slice(0, settings.top_contributors_count)
@@ -154,7 +160,7 @@ export default class HacfAside extends Component {
         {{#if this.showHot}}
           <section class="hacf-hot">
             <h2 class="hacf-hot__title">{{icon settings.hot_topics_icon}}
-              Sujets chauds</h2>
+              {{i18n (themePrefix "hot_title")}}</h2>
             <ul class="hacf-hot__list">
               {{#each this.hot as |topic|}}
                 <li class="hacf-hot__item" style={{topic.style}}>
@@ -177,7 +183,7 @@ export default class HacfAside extends Component {
             <h2 class="hacf-events__title">{{icon
                 settings.upcoming_events_icon
               }}
-              Prochains événements</h2>
+              {{i18n (themePrefix "events_title")}}</h2>
             <ul class="hacf-events__list">
               {{#each this.events as |event|}}
                 <li class="hacf-events__item">
@@ -200,7 +206,7 @@ export default class HacfAside extends Component {
         {{#if this.showContributors}}
           <section class="hacf-top">
             <h2 class="hacf-top__title">{{icon settings.top_contributors_icon}}
-              Meilleurs contributeurs</h2>
+              {{i18n (themePrefix "top_title")}}</h2>
             <ul class="hacf-top__list">
               {{#each this.contributors as |c|}}
                 <li class="hacf-top__item">
@@ -220,7 +226,7 @@ export default class HacfAside extends Component {
                 </li>
               {{/each}}
             </ul>
-            <p class="hacf-top__note">Cette semaine · « j'aime » reçus</p>
+            <p class="hacf-top__note">{{i18n (themePrefix "top_note")}}</p>
           </section>
         {{/if}}
       </aside>

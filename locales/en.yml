@@ -1,0 +1,6 @@
+en:
+  hot_title: "Hot topics"
+  events_title: "Upcoming events"
+  top_title: "Top contributors"
+  top_note: "This week · likes received"
+  card_counts: "%{topics} topics · %{posts} posts"

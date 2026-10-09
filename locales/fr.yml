@@ -1,0 +1,6 @@
+fr:
+  hot_title: "Sujets chauds"
+  events_title: "Prochains événements"
+  top_title: "Meilleurs contributeurs"
+  top_note: "Cette semaine · « j'aime » reçus"
+  card_counts: "%{topics} sujets · %{posts} messages"
