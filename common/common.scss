@@ -2788,13 +2788,6 @@ body {
     color: var(--primary);
   }
 
-  &--header {
-    padding: 0.4rem 0.7rem;
-    margin-right: 0.5rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--tertiary) 8%, var(--secondary));
-    border: 1px solid color-mix(in srgb, var(--tertiary) 22%, transparent);
-  }
 
   &--list {
     margin: 0 0 0.75rem;
@@ -2854,9 +2847,3 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .hacf-pill--header {
-    padding: 0.3rem 0.5rem;
-    margin-right: 0.25rem;
-  }
-}
