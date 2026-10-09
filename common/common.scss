@@ -2480,3 +2480,16 @@ body {
     flex: 0 1 210px;
   }
 }
+
+// Accueil : « Voir toutes les publications » à droite du titre (la section s'arrête aux cartes)
+.hacf-home .hacf-news {
+  position: relative;
+
+  .hacf-news__all {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    line-height: 2rem;
+  }
+}
