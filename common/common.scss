@@ -1209,3 +1209,19 @@ aside.d-post-accordion.accepted-answers {
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(26, 123, 255, 0.2);
 }
+
+/* Carte de connexion : cadre dégradé arrondi */
+.login-fullpage .login-body,
+.signup-fullpage .signup-body,
+.signup-fullpage .login-body {
+  border: 1.5px solid transparent;
+  border-image: none;
+  border-radius: 18px;
+  background:
+    linear-gradient(var(--hacf-card-bg, var(--header_background)), var(--hacf-card-bg, var(--header_background))) padding-box,
+    linear-gradient(90deg, #1a7bff, #8b5aa8, #ff3d38) border-box;
+}
+.login-fullpage,
+.signup-fullpage {
+  margin-top: -4rem;
+}
