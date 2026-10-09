@@ -1248,3 +1248,15 @@ body.signup-page {
 html[lang^="en"] .login-fullpage .login-welcome-header::after {
   content: "Join the French-speaking Home Assistant community";
 }
+
+/* Logo au-dessus de la carte de connexion / inscription */
+.login-fullpage::before,
+.signup-fullpage::before {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 1.25rem;
+  background: url("https://forum.hacf.fr/uploads/default/original/2X/0/05c96477b87c26072f9c263bad1a5f7060762d81.png") center / contain no-repeat;
+  filter: drop-shadow(0 6px 18px rgba(139, 90, 168, 0.35));
+}
