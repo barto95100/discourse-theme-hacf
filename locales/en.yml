@@ -2,7 +2,7 @@ en:
   hot_title: "Hot topics"
   home_welcome_back: "Welcome back, %{username}"
   home_contrib_title: "Powering the community this week"
-  home_join: "Join our %{count} members"
+  home_join: "Join our %{members} members"
   home_articles_title: "Latest publications"
   home_articles_all: "See all publications"
   home_events_title: "Upcoming events"

@@ -2052,3 +2052,190 @@ body {
   width: auto;
   max-width: none;
 }
+
+// ============================================================
+// Accueil : grille bento
+// ============================================================
+.hacf-home {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+
+  > section {
+    margin: 0;
+  }
+
+  .hacf-home__hero { grid-column: 1 / -1; }
+  .hacf-pillars    { grid-column: 1 / 9;  grid-row: 2; }
+  .hacf-home__stats { grid-column: 9 / -1; grid-row: 2; }
+  .hacf-news       { grid-column: 1 / 9;  grid-row: 3; }
+  .hacf-upcoming   { grid-column: 9 / -1; grid-row: 3; }
+  .hacf-steps      { grid-column: 1 / -1; grid-row: 4; }
+
+  // Une section vide laisse la place à sa voisine
+  &:not(:has(.hacf-upcoming)) .hacf-news,
+  &:not(:has(.hacf-news)) .hacf-upcoming {
+    grid-column: 1 / -1;
+  }
+  &:not(:has(.hacf-home__stats)) .hacf-pillars {
+    grid-column: 1 / -1;
+  }
+}
+
+// Bande d'avatars
+.hacf-home__members {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.hacf-home__avatars {
+  display: flex;
+}
+
+.hacf-home__avatar {
+  width: 40px;
+  height: 40px;
+  margin-left: -10px;
+  overflow: hidden;
+  border: 2px solid var(--secondary);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+
+  &:first-child { margin-left: 0; }
+  &:hover { transform: translateY(-3px); }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hacf-home__join {
+  font-weight: 600;
+  color: var(--primary-high);
+}
+
+// Piliers : s'adaptent à la place disponible
+.hacf-home .hacf-pillars {
+  align-content: stretch;
+
+  .hacf-pillar {
+    flex: 1 1 190px;
+  }
+}
+
+// Chiffres clés : empilés dans leur colonne
+.hacf-home .hacf-home__stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-content: stretch;
+}
+
+// Événements : un panneau
+.hacf-home .hacf-upcoming {
+  padding: 1.2rem;
+  border: 1px solid var(--primary-low);
+  border-radius: 20px;
+  background: var(--secondary);
+  text-align: left;
+
+  .hacf-upcoming__title,
+  .hacf-news__title {
+    margin: 0 0 0.9rem;
+    font-size: var(--font-up-1);
+  }
+
+  .hacf-upcoming__list {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+}
+
+.hacf-home .hacf-news {
+  text-align: left;
+
+  .hacf-news__title {
+    margin: 0 0 0.9rem;
+    font-size: var(--font-up-1);
+  }
+
+  // 1 grande carte à gauche, 2 petites empilées à droite
+  .hacf-news__list {
+    grid-template-columns: 1.35fr 1fr;
+    justify-content: stretch;
+  }
+
+  .hacf-news-card {
+    height: 100%;
+
+    &:first-child {
+      grid-row: span 2;
+
+      .hacf-news-card__img {
+        flex: 1;
+        height: auto;
+        min-height: 200px;
+      }
+    }
+
+    &:not(:first-child) .hacf-news-card__img {
+      height: 90px;
+    }
+  }
+}
+
+// Étapes : frise reliée
+.hacf-home .hacf-steps {
+  .hacf-steps__list {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 2.4rem;
+      left: 16%;
+      right: 16%;
+      height: 2px;
+      background: linear-gradient(90deg, #1a7bff, #8b5aa8, #ff3d38);
+      opacity: 0.35;
+    }
+  }
+
+  .hacf-step {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Petits écrans : une seule colonne
+@media (max-width: 900px) {
+  .hacf-home {
+    > section {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+    }
+
+    .hacf-home__stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hacf-news .hacf-news__list {
+      grid-template-columns: 1fr;
+    }
+
+    .hacf-news-card:first-child {
+      grid-row: auto;
+    }
+
+    .hacf-steps .hacf-steps__list::before {
+      display: none;
+    }
+  }
+}

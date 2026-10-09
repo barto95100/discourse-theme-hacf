@@ -51,6 +51,10 @@ export default class HacfHome extends Component {
     }
   }
 
+  get membersLabel() {
+    return this.stats?.[0]?.value;
+  }
+
   async loadContributors() {
     try {
       const data = await ajax(
@@ -184,6 +188,23 @@ export default class HacfHome extends Component {
               (themePrefix "home_cta_browse")
             }}</a>
         </div>
+        {{#if this.contributors.length}}
+          <div class="hacf-home__members">
+            <span class="hacf-home__avatars">
+              {{#each this.contributors as |c|}}
+                <a class="hacf-home__avatar" href={{c.url}} title={{c.name}}>
+                  <img src={{c.avatar}} alt={{c.name}} loading="lazy" />
+                </a>
+              {{/each}}
+            </span>
+            {{#if this.membersLabel}}
+              <span class="hacf-home__join">{{i18n
+                  (themePrefix "home_join")
+                  members=this.membersLabel
+                }}</span>
+            {{/if}}
+          </div>
+        {{/if}}
       </section>
 
       <section class="hacf-pillars">
