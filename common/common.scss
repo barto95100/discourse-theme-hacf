@@ -1508,3 +1508,12 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* Sidebar : le lien « Accueil » en première position */
+.sidebar-section-content:has(> [data-list-item-name="hacf-home"]) {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-section-content > [data-list-item-name="hacf-home"] {
+  order: -1;
+}
