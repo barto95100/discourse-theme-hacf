@@ -2726,8 +2726,16 @@ body:has(.hacf-home) .hacf-footer {
   }
 }
 
-/* Admin : marge intérieure du contenu (toutes les pages /admin/*) */
-.admin-contents {
-  padding: 0.75rem 1.5rem 1rem;
+/* Admin : le panneau central devient une carte (toutes les pages /admin/*) */
+.boxed.white.admin-content {
+  padding: 1.25rem 1.75rem 1.75rem;
   box-sizing: border-box;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--tertiary) 22%, transparent);
+  background: color-mix(in srgb, var(--tertiary) 5%, var(--secondary));
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--tertiary) 10%, transparent);
+}
+
+.admin-contents {
+  padding: 0;
 }
