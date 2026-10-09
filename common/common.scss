@@ -2709,3 +2709,19 @@ body:has(.hacf-home) .hacf-footer {
     transform: translateX(112px);
   }
 }
+
+/* Footer : ajustement fin d'alignement avec les cartes */
+.hacf-footer {
+  padding-inline: 0.75rem;
+
+  &::before {
+    left: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .has-sidebar-page .hacf-footer {
+    transform: translateX(130px);
+  }
+}
