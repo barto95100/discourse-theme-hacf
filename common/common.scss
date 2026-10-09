@@ -1699,7 +1699,7 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
 }
 
 // Accueil : événements à venir
-.hacf-events {
+.hacf-upcoming {
   margin-top: 2rem;
   text-align: center;
 
@@ -1721,9 +1721,9 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   }
 }
 
-.hacf-event,
-.hacf-event:visited,
-.hacf-event:hover {
+.hacf-upcoming-item,
+.hacf-upcoming-item:visited,
+.hacf-upcoming-item:hover {
   display: flex;
   align-items: center;
   gap: 0.9rem;

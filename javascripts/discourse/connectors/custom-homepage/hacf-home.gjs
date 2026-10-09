@@ -139,20 +139,20 @@ export default class HacfHome extends Component {
       {{/if}}
 
       {{#if this.events.length}}
-        <section class="hacf-events">
-          <h2 class="hacf-events__title">{{i18n (themePrefix "home_events_title")}}</h2>
-          <div class="hacf-events__list">
+        <section class="hacf-upcoming">
+          <h2 class="hacf-upcoming__title">{{i18n (themePrefix "home_events_title")}}</h2>
+          <div class="hacf-upcoming__list">
             {{#each this.events as |ev|}}
-              <a class="hacf-event" href={{ev.url}}>
-                <span class="hacf-event__icon">{{icon "calendar-days"}}</span>
-                <span class="hacf-event__body">
-                  <span class="hacf-event__date">{{ev.date}}</span>
-                  <span class="hacf-event__name">{{ev.title}}</span>
+              <a class="hacf-upcoming-item" href={{ev.url}}>
+                <span class="hacf-upcoming-item__icon">{{icon "calendar-days"}}</span>
+                <span class="hacf-upcoming-item__body">
+                  <span class="hacf-upcoming-item__date">{{ev.date}}</span>
+                  <span class="hacf-upcoming-item__name">{{ev.title}}</span>
                 </span>
               </a>
             {{/each}}
           </div>
-          <a class="hacf-events__all" href="/upcoming-events">{{i18n (themePrefix "home_events_all")}}</a>
+          <a class="hacf-upcoming__all" href="/upcoming-events">{{i18n (themePrefix "home_events_all")}}</a>
         </section>
       {{/if}}
 
