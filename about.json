@@ -29,11 +29,11 @@
       "love": "D92C27"
     },
     "HACF Sombre": {
-      "primary": "ECE8F7",
-      "secondary": "0F0E1C",
+      "primary": "E6EAF2",
+      "secondary": "0B0F1A",
       "tertiary": "7FB0FF",
-      "quaternary": "DDB2F2",
-      "header_background": "14132A",
+      "quaternary": "C4A8EA",
+      "header_background": "0F1424",
       "header_primary": "FFFFFF",
       "highlight": "5C4B12",
       "danger": "FF6B66",
