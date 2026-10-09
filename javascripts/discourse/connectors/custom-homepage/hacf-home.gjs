@@ -105,6 +105,27 @@ export default class HacfHome extends Component {
           {{/each}}
         </section>
       {{/if}}
+
+      <section class="hacf-steps">
+        <h2 class="hacf-steps__title">{{i18n (themePrefix "home_steps_title")}}</h2>
+        <div class="hacf-steps__list">
+          <div class="hacf-step">
+            <span class="hacf-step__num">1</span>
+            <h3 class="hacf-step__title">{{i18n (themePrefix "home_step1_title")}}</h3>
+            <span class="hacf-step__desc">{{i18n (themePrefix "home_step1_desc")}}</span>
+          </div>
+          <div class="hacf-step">
+            <span class="hacf-step__num">2</span>
+            <h3 class="hacf-step__title">{{i18n (themePrefix "home_step2_title")}}</h3>
+            <span class="hacf-step__desc">{{i18n (themePrefix "home_step2_desc")}}</span>
+          </div>
+          <div class="hacf-step">
+            <span class="hacf-step__num">3</span>
+            <h3 class="hacf-step__title">{{i18n (themePrefix "home_step3_title")}}</h3>
+            <span class="hacf-step__desc">{{i18n (themePrefix "home_step3_desc")}}</span>
+          </div>
+        </div>
+      </section>
     </div>
   </template>
 }

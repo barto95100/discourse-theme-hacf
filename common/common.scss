@@ -1644,3 +1644,56 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
     color: var(--primary-high);
   }
 }
+
+// Accueil : étapes « Comment ça marche »
+.hacf-steps {
+  margin-top: 2rem;
+
+  &__title {
+    text-align: center;
+    margin: 0 0 1.2rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.hacf-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.4rem 1.2rem;
+  border: 1px solid var(--primary-low);
+  border-radius: 16px;
+  background: var(--secondary);
+
+  &__num {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #1a7bff, #8b5aa8 55%, #ff3d38);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: var(--font-up-1);
+  }
+
+  &__desc {
+    color: var(--primary-high);
+    font-size: var(--font-down-1);
+  }
+}

@@ -1,5 +1,12 @@
 fr:
   hot_title: "Sujets chauds"
+  home_steps_title: "Comment ça marche"
+  home_step1_title: "Crée ton compte"
+  home_step1_desc: "L'inscription est gratuite et prend quelques secondes."
+  home_step2_title: "Pose ta question ou partage"
+  home_step2_desc: "Décris ton besoin ou présente ton projet Home Assistant."
+  home_step3_title: "Aide et progresse"
+  home_step3_desc: "Réponds aux autres, gagne des points et fais grandir la communauté."
   events_title: "Prochains événements"
   top_title: "Meilleurs contributeurs"
   top_note: "Cette semaine · « j'aime » reçus"

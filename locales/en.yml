@@ -1,5 +1,12 @@
 en:
   hot_title: "Hot topics"
+  home_steps_title: "How it works"
+  home_step1_title: "Create your account"
+  home_step1_desc: "Signing up is free and takes a few seconds."
+  home_step2_title: "Ask or share"
+  home_step2_desc: "Describe what you need or show off your Home Assistant project."
+  home_step3_title: "Help and grow"
+  home_step3_desc: "Answer others, earn points and help the community grow."
   events_title: "Upcoming events"
   top_title: "Top contributors"
   top_note: "This week · likes received"
