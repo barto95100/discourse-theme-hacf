@@ -1949,3 +1949,24 @@ body {
     }
   }
 }
+
+// Messages d'un sujet : une carte par message
+.topic-post {
+  article.boxed {
+    margin-bottom: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--primary-low);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--secondary) 92%, transparent);
+  }
+
+  .topic-body,
+  .topic-body:hover {
+    border-top: none;
+  }
+
+  // Premier message du sujet : liseré d'accent
+  article#post_1.boxed {
+    box-shadow: inset 4px 0 0 var(--tertiary);
+  }
+}
