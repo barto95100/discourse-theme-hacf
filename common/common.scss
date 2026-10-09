@@ -884,3 +884,63 @@ body.has-sidebar-page {
   gap: 0.5rem;
   text-align: center;
 }
+
+/* ===== Contenu des messages : citations, code, solution ===== */
+
+/* Citations */
+.cooked aside.quote,
+.cooked blockquote {
+  background: color-mix(in srgb, var(--tertiary) 6%, var(--secondary));
+  border: 1px solid var(--primary-low);
+  border-left: 4px solid var(--tertiary);
+  border-radius: 10px;
+  padding: 0.2rem 0.2rem;
+  overflow: hidden;
+}
+.cooked aside.quote .title {
+  background: transparent;
+  border: 0;
+  font-weight: 600;
+  color: var(--tertiary);
+}
+.cooked aside.quote blockquote {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0.25rem 0.75rem;
+}
+.cooked > blockquote {
+  padding: 0.5rem 1rem;
+}
+
+/* Blocs de code */
+.cooked pre {
+  background: color-mix(in srgb, var(--primary) 5%, var(--secondary));
+  border: 1px solid var(--primary-low);
+  border-radius: 12px;
+  box-shadow: inset 3px 0 0 var(--quaternary);
+}
+.cooked pre code {
+  background: transparent;
+  padding: 0.9rem 1.1rem;
+}
+.cooked code {
+  border-radius: 6px;
+}
+.cooked :not(pre) > code {
+  background: color-mix(in srgb, var(--quaternary) 14%, var(--secondary));
+  border: 1px solid color-mix(in srgb, var(--quaternary) 25%, transparent);
+  padding: 0.1em 0.4em;
+}
+
+/* Réponse marquée comme solution */
+.topic-post.accepted-answer .topic-body {
+  border: 1px solid color-mix(in srgb, var(--success) 45%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--success) 5%, var(--secondary));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 10%, transparent);
+}
+.topic-post.accepted-answer .topic-body .select-posts,
+.topic-post.accepted-answer .post-info.solution {
+  color: var(--success);
+}
