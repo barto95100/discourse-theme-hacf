@@ -2410,3 +2410,28 @@ body {
   width: 48px;
   height: 48px;
 }
+
+// Accueil : chiffres clés compacts (une ligne par chiffre)
+.hacf-home .hacf-home__stats {
+  gap: 0.6rem;
+  align-content: start;
+
+  .hacf-home__stat {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.55rem 1rem;
+    border-radius: 14px;
+  }
+
+  .hacf-home__stat-value {
+    font-size: var(--font-up-2);
+    line-height: 1.1;
+  }
+
+  .hacf-home__stat-label {
+    font-size: var(--font-down-1);
+  }
+}
