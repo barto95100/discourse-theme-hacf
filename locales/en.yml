@@ -18,6 +18,7 @@ en:
   home_team_all: "See the whole team"
   home_join: "Join our %{members} members"
   home_online: "Online now"
+  banner_close: "Close"
   home_articles_title: "Latest publications"
   home_articles_all: "See all publications"
   home_events_title: "Upcoming events"

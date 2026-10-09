@@ -18,6 +18,7 @@ fr:
   home_team_all: "Voir toute l'équipe"
   home_join: "Rejoins nos %{members} membres"
   home_online: "En ligne maintenant"
+  banner_close: "Fermer"
   home_articles_title: "Dernières publications"
   home_articles_all: "Voir toutes les publications"
   home_events_title: "Événements à venir"

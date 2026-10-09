@@ -2922,3 +2922,76 @@ body {
     flex: none;
   }
 }
+
+// Bandeau d'annonce de l'équipe
+.hacf-banner {
+  --hacf-banner-c: var(--tertiary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--hacf-banner-c) 35%, transparent);
+  border-left: 4px solid var(--hacf-banner-c);
+  background: color-mix(in srgb, var(--hacf-banner-c) 10%, var(--secondary));
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--hacf-banner-c) 12%, transparent);
+  color: var(--primary);
+
+  &--success {
+    --hacf-banner-c: #22c55e;
+  }
+
+  &--warning {
+    --hacf-banner-c: #f59e0b;
+  }
+
+  &__icon {
+    flex: none;
+    color: var(--hacf-banner-c);
+    font-size: 1.15em;
+    display: inline-flex;
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  &__link {
+    flex: none;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+    color: var(--hacf-banner-c);
+    border: 1px solid color-mix(in srgb, var(--hacf-banner-c) 55%, transparent);
+    text-decoration: none;
+
+    &:hover {
+      background: color-mix(in srgb, var(--hacf-banner-c) 16%, transparent);
+    }
+  }
+
+  &__close {
+    flex: none;
+    background: transparent;
+    border: 0;
+    padding: 0.35rem;
+    border-radius: 8px;
+    color: var(--primary-high);
+    cursor: pointer;
+
+    &:hover {
+      background: color-mix(in srgb, var(--hacf-banner-c) 16%, transparent);
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+
+    &__text {
+      flex-basis: calc(100% - 4.5rem);
+    }
+  }
+}
