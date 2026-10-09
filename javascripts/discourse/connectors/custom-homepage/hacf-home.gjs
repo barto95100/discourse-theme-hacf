@@ -1,9 +1,36 @@
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { service } from "@ember/service";
+import { ajax } from "discourse/lib/ajax";
 import { i18n } from "discourse-i18n";
 
 export default class HacfHome extends Component {
   @service currentUser;
+
+  @tracked stats = null;
+
+  constructor() {
+    super(...arguments);
+    this.loadStats();
+  }
+
+  async loadStats() {
+    try {
+      const data = await ajax("/about.json");
+      const s = data?.about?.stats;
+      if (!s) {
+        return;
+      }
+      const fmt = new Intl.NumberFormat(document.documentElement.lang || "fr");
+      this.stats = [
+        { key: "home_stat_members", value: fmt.format(s.user_count || 0) },
+        { key: "home_stat_topics", value: fmt.format(s.topic_count || 0) },
+        { key: "home_stat_posts", value: fmt.format(s.post_count || 0) },
+      ];
+    } catch {
+      // pas de statistiques : on n'affiche rien
+    }
+  }
 
   <template>
     <div class="hacf-home">
@@ -23,6 +50,19 @@ export default class HacfHome extends Component {
             }}</a>
         </div>
       </section>
+
+      {{#if this.stats}}
+        <section class="hacf-home__stats">
+          {{#each this.stats as |stat|}}
+            <div class="hacf-home__stat">
+              <span class="hacf-home__stat-value">{{stat.value}}</span>
+              <span class="hacf-home__stat-label">{{i18n
+                  (themePrefix stat.key)
+                }}</span>
+            </div>
+          {{/each}}
+        </section>
+      {{/if}}
     </div>
   </template>
 }

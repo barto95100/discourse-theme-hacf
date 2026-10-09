@@ -9,3 +9,6 @@ en:
   home_cta_signup: "Create an account"
   home_cta_browse: "Browse topics"
   nav_home: "Home"
+  home_stat_members: "members"
+  home_stat_topics: "topics"
+  home_stat_posts: "posts"

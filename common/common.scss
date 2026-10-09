@@ -1517,3 +1517,43 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
 .sidebar-section-content > [data-list-item-name="hacf-home"] {
   order: -1;
 }
+
+/* Page d'accueil : chiffres clés */
+.hacf-home__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.hacf-home__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  background: var(--hacf-card-bg, var(--header_background));
+  border: 1px solid var(--primary-low);
+  border-radius: 14px;
+  box-shadow: var(--hacf-card-shadow, none);
+}
+.hacf-home__stat-value {
+  font-family: var(--hacf-font-heading);
+  font-size: var(--font-up-5);
+  font-weight: 700;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #1a7bff, #8b5aa8, #ff3d38);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hacf-home__stat-label {
+  margin-top: 0.3rem;
+  color: var(--primary-high);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--font-down-1);
+}
+@media (max-width: 600px) {
+  .hacf-home__stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -9,3 +9,6 @@ fr:
   home_cta_signup: "Créer un compte"
   home_cta_browse: "Parcourir les sujets"
   nav_home: "Accueil"
+  home_stat_members: "membres"
+  home_stat_topics: "sujets"
+  home_stat_posts: "messages"
