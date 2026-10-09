@@ -3117,3 +3117,35 @@ body {
     line-height: normal;
   }
 }
+
+// Mobile : annule les règles pensées pour le tableau desktop
+@media (max-width: 768px) {
+  .topic-list {
+    .main-link {
+      max-width: none;
+      width: auto;
+      min-width: 0;
+      flex: 1 1 0;
+    }
+
+    .posters {
+      width: auto;
+      min-width: 0;
+      white-space: normal;
+    }
+
+    .main-link .link-top-line {
+      flex-wrap: wrap;
+
+      a.title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        white-space: normal;
+        overflow: hidden;
+        overflow-wrap: anywhere;
+      }
+    }
+  }
+}
