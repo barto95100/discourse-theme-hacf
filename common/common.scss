@@ -1086,3 +1086,33 @@ aside.d-post-accordion.accepted-answers {
 .welcome-banner__title {
   margin-bottom: 2.4rem;
 }
+
+/* Sélecteur de langue de l'en-tête : survol lisible */
+.d-header .select-kit .select-kit-header,
+.d-header .select-kit .select-kit-header:hover,
+.d-header .select-kit.is-expanded .select-kit-header,
+.d-header .select-kit .select-kit-header:focus {
+  color: var(--primary) !important;
+}
+.d-header .select-kit .select-kit-header:hover,
+.d-header .select-kit.is-expanded .select-kit-header {
+  background: color-mix(in srgb, var(--tertiary) 14%, var(--header_background)) !important;
+  border-color: var(--tertiary) !important;
+}
+.d-header .select-kit .select-kit-header .d-icon,
+.d-header .select-kit .select-kit-header:hover .d-icon {
+  color: var(--primary) !important;
+}
+
+/* Menu déroulant des langues */
+.select-kit .select-kit-collection {
+  background: var(--header_background);
+}
+.select-kit .select-kit-row {
+  color: var(--primary);
+}
+.select-kit .select-kit-row:hover,
+.select-kit .select-kit-row.is-highlighted {
+  background: color-mix(in srgb, var(--tertiary) 14%, var(--header_background)) !important;
+  color: var(--primary) !important;
+}
