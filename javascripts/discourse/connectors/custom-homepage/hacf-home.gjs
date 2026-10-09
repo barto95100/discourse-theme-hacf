@@ -20,6 +20,7 @@ export default class HacfHome extends Component {
   pillars = [];
 
   buildPillars() {
+    const fmt = new Intl.NumberFormat(document.documentElement.lang || "fr");
     try {
       return (settings.featured_categories || [])
         .map((item) => {
@@ -32,8 +33,8 @@ export default class HacfHome extends Component {
                 icon: item.icon || "folder",
                 description: String(item.description ?? ""),
                 counts: i18n(themePrefix("card_counts"), {
-                  topics: cat.topic_count ?? 0,
-                  posts: cat.post_count ?? 0,
+                  topics: fmt.format(cat.topic_count ?? 0),
+                  posts: fmt.format(cat.post_count ?? 0),
                 }),
               }
             : null;
