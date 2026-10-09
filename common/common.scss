@@ -2763,3 +2763,100 @@ body {
     background: transparent !important;
   }
 }
+
+// Pastille « en ligne » (en-tête + pages de liste)
+.hacf-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--font-down-1);
+  line-height: 1;
+  color: var(--primary-high);
+
+  &__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 55%, transparent);
+    animation: hacf-pill-pulse 2s infinite;
+    flex: none;
+  }
+
+  &__count {
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  &--header {
+    padding: 0.4rem 0.7rem;
+    margin-right: 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--tertiary) 8%, var(--secondary));
+    border: 1px solid color-mix(in srgb, var(--tertiary) 22%, transparent);
+  }
+
+  &--list {
+    margin: 0 0 0.75rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--tertiary) 5%, var(--secondary));
+    border: 1px solid color-mix(in srgb, var(--tertiary) 22%, transparent);
+    flex-wrap: wrap;
+  }
+
+  &__avatars {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 0.25rem;
+  }
+
+  &__avatar {
+    display: inline-flex;
+    margin-left: -0.4rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    img {
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      border: 2px solid var(--secondary);
+      object-fit: cover;
+    }
+  }
+
+  &__more {
+    font-weight: 600;
+    color: var(--primary-high);
+  }
+}
+
+.discovery-layout__navigation .hacf-pill--list,
+.list-controls .hacf-pill--list {
+  align-self: flex-start;
+}
+
+@keyframes hacf-pill-pulse {
+  70% {
+    box-shadow: 0 0 0 0.45rem transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hacf-pill__dot {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hacf-pill--header {
+    padding: 0.3rem 0.5rem;
+    margin-right: 0.25rem;
+  }
+}

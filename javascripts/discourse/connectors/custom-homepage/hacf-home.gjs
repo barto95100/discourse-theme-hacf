@@ -17,7 +17,6 @@ export default class HacfHome extends Component {
 
   constructor() {
     super(...arguments);
-    this.loadOnline();
     this.pillars = this.buildPillars();
     this.loadStats();
     this.loadEvents();
@@ -236,44 +235,6 @@ export default class HacfHome extends Component {
     }
   }
 
-  @tracked online = null;
-  _onlineTimer = null;
-
-  async loadOnline() {
-    const url = settings.presence_url;
-    if (!url) {
-      return;
-    }
-    const refresh = async () => {
-      if (document.hidden) {
-        return;
-      }
-      try {
-        const r = await fetch(url);
-        if (!r.ok) {
-          return;
-        }
-        const d = await r.json();
-        const max = settings.presence_max_avatars || 20;
-        const users = (d.users || []).slice(0, max).map((u) => ({
-          name: u.username,
-          url: `/u/${u.username}`,
-          avatar: u.avatar_template.replace("{size}", "48"),
-        }));
-        const count = d.count || 0;
-        this.online = { count, users, more: Math.max(0, count - users.length) };
-      } catch {
-        // silencieux : la ligne reste simplement masquée
-      }
-    };
-    this._onlineTimer = setInterval(refresh, 60000);
-    await refresh();
-  }
-
-  willDestroy() {
-    super.willDestroy(...arguments);
-    clearInterval(this._onlineTimer);
-  }
 
   get year() {
     return new Date().getFullYear();
@@ -311,23 +272,6 @@ export default class HacfHome extends Component {
                   members=this.membersLabel
                 }}</span>
             {{/if}}{{/unless}}
-          </div>
-        {{/if}}
-              {{#if this.online.count}}
-          <div class="hacf-online">
-            <span class="hacf-online__dot"></span>
-            <span class="hacf-online__label">{{i18n (themePrefix "home_online")}}</span>
-            <span class="hacf-online__count">{{this.online.count}}</span>
-            <span class="hacf-online__avatars">
-              {{#each this.online.users as |u|}}
-                <a class="hacf-online__avatar" href={{u.url}} title={{u.name}}>
-                  <img src={{u.avatar}} alt={{u.name}} loading="lazy" />
-                </a>
-              {{/each}}
-            </span>
-            {{#if this.online.more}}
-              <span class="hacf-online__more">+{{this.online.more}}</span>
-            {{/if}}
           </div>
         {{/if}}
       </section>
