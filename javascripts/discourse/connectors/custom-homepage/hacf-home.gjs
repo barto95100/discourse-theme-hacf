@@ -23,9 +23,9 @@ export default class HacfHome extends Component {
       }
       const fmt = new Intl.NumberFormat(document.documentElement.lang || "fr");
       this.stats = [
-        { key: "home_stat_members", value: fmt.format(s.user_count || 0) },
-        { key: "home_stat_topics", value: fmt.format(s.topic_count || 0) },
-        { key: "home_stat_posts", value: fmt.format(s.post_count || 0) },
+        { key: "home_stat_members", value: fmt.format(s.users_count ?? s.user_count ?? 0) },
+        { key: "home_stat_topics", value: fmt.format(s.topics_count ?? s.topic_count ?? 0) },
+        { key: "home_stat_posts", value: fmt.format(s.posts_count ?? s.post_count ?? 0) },
       ];
     } catch {
       // pas de statistiques : on n'affiche rien
