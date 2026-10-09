@@ -2562,3 +2562,11 @@ body {
 .sidebar-wrapper .sidebar-footer-container::after {
   display: none;
 }
+
+/* Recherche admin : survol et sélection lisibles en thème sombre */
+.admin-search__result:hover,
+.admin-search__result:focus-within,
+.admin-search__result-link:focus {
+  background: color-mix(in srgb, var(--tertiary) 14%, transparent);
+  border-radius: 8px;
+}
