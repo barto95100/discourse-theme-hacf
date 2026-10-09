@@ -21,7 +21,17 @@ export default class HacfHome extends Component {
         .map((item) => {
           const id = item.category?.[0];
           const cat = id ? Category.findById(id) : null;
-          return cat ? { name: cat.name, url: cat.url } : null;
+          return cat
+            ? {
+                name: cat.name,
+                url: cat.url,
+                description: item.description || "",
+                counts: i18n(themePrefix("card_counts"), {
+                  topics: cat.topic_count ?? 0,
+                  posts: cat.post_count ?? 0,
+                }),
+              }
+            : null;
         })
         .filter(Boolean);
     } catch {
@@ -68,7 +78,11 @@ export default class HacfHome extends Component {
 
       <section class="hacf-pillars">
         {{#each this.pillars as |p|}}
-          <a class="hacf-pillar" href={{p.url}}>{{p.name}}</a>
+          <a class="hacf-pillar" href={{p.url}}>
+            <h3 class="hacf-pillar__title">{{p.name}}</h3>
+            <p class="hacf-pillar__desc">{{p.description}}</p>
+            <span class="hacf-pillar__count">{{p.counts}}</span>
+          </a>
         {{/each}}
       </section>
 
