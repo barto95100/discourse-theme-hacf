@@ -10,11 +10,13 @@ export default class HacfHome extends Component {
   @service currentUser;
 
   @tracked stats = null;
+  @tracked events = [];
 
   constructor() {
     super(...arguments);
     this.pillars = this.buildPillars();
     this.loadStats();
+    this.loadEvents();
   }
 
   pillars = [];
@@ -42,6 +44,36 @@ export default class HacfHome extends Component {
         .filter(Boolean);
     } catch {
       return [];
+    }
+  }
+
+  async loadEvents() {
+    try {
+      const data = await ajax("/discourse-post-event/events.json");
+      const lang = document.documentElement.lang || "fr";
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      this.events = (data?.events || [])
+        .filter((e) => e.starts_at && new Date(e.ends_at || e.starts_at) >= today)
+        .sort((a, b) => new Date(a.starts_at) - new Date(b.starts_at))
+        .slice(0, 3)
+        .map((e) => {
+          const dateOnly = String(e.starts_at).length === 10;
+          const opts = { weekday: "short", day: "numeric", month: "short" };
+          if (dateOnly) {
+            opts.timeZone = "UTC";
+          } else {
+            opts.hour = "2-digit";
+            opts.minute = "2-digit";
+          }
+          return {
+            url: e.post?.url || "/upcoming-events",
+            title: e.name || e.post?.topic?.title || "",
+            date: new Intl.DateTimeFormat(lang, opts).format(new Date(e.starts_at)),
+          };
+        });
+    } catch {
+      // pas d'événements : la section reste cachée
     }
   }
 
@@ -103,6 +135,24 @@ export default class HacfHome extends Component {
                 }}</span>
             </div>
           {{/each}}
+        </section>
+      {{/if}}
+
+      {{#if this.events.length}}
+        <section class="hacf-events">
+          <h2 class="hacf-events__title">{{i18n (themePrefix "home_events_title")}}</h2>
+          <div class="hacf-events__list">
+            {{#each this.events as |ev|}}
+              <a class="hacf-event" href={{ev.url}}>
+                <span class="hacf-event__icon">{{icon "calendar-days"}}</span>
+                <span class="hacf-event__body">
+                  <span class="hacf-event__date">{{ev.date}}</span>
+                  <span class="hacf-event__name">{{ev.title}}</span>
+                </span>
+              </a>
+            {{/each}}
+          </div>
+          <a class="hacf-events__all" href="/upcoming-events">{{i18n (themePrefix "home_events_all")}}</a>
         </section>
       {{/if}}
 

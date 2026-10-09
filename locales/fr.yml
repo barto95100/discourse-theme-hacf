@@ -1,5 +1,7 @@
 fr:
   hot_title: "Sujets chauds"
+  home_events_title: "Événements à venir"
+  home_events_all: "Voir tous les événements"
   home_steps_title: "Comment ça marche"
   home_step1_title: "Crée ton compte"
   home_step1_desc: "L'inscription est gratuite et prend quelques secondes."
