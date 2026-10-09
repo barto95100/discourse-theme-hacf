@@ -1225,3 +1225,26 @@ aside.d-post-accordion.accepted-answers {
 .signup-fullpage {
   margin-top: -4rem;
 }
+
+/* ===== Connexion / inscription : ambiance ===== */
+body.login-page,
+body.signup-page {
+  background:
+    radial-gradient(ellipse 55% 45% at 15% 0%, rgba(26, 123, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 50% -10%, rgba(139, 90, 168, 0.14), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 85% 0%, rgba(255, 61, 56, 0.12), transparent 70%),
+    var(--secondary);
+  background-attachment: fixed;
+}
+
+/* Accroche sous le titre (page de connexion) */
+.login-fullpage .login-welcome-header::after {
+  content: "Rejoignez la communauté francophone Home Assistant";
+  display: block;
+  margin-top: 0.4rem;
+  font-size: var(--font-0);
+  color: var(--primary-medium);
+}
+html[lang^="en"] .login-fullpage .login-welcome-header::after {
+  content: "Join the French-speaking Home Assistant community";
+}
