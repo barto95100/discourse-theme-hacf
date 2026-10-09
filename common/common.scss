@@ -3113,7 +3113,7 @@ body {
 
   .d-header-icons .language-switcher-trigger .language-switcher__locale[data-full]::before {
     content: attr(data-full);
-    font-size: var(--font-0);
+    font-size: 0.875rem;
     line-height: normal;
   }
 }
