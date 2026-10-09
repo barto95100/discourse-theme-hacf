@@ -873,3 +873,14 @@ body.has-sidebar-page {
 .hacf-top__note {
   text-align: center;
 }
+
+/* Titres des blocs de droite centrés */
+.hacf-hot__title,
+.hacf-events__title,
+.hacf-top__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
