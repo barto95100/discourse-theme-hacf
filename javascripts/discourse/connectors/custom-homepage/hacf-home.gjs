@@ -49,6 +49,26 @@ export default class HacfHome extends Component {
     }
   }
 
+  async loadArticleImages() {
+    const list = await Promise.all(
+      this.articles.map(async (a) => {
+        if (a.image) {
+          return a;
+        }
+        try {
+          const d = await ajax(`/t/${a.id}.json`);
+          const html = d?.post_stream?.posts?.[0]?.cooked || "";
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const img = doc.querySelector("img.thumbnail");
+          return { ...a, image: img?.getAttribute("src") || null };
+        } catch {
+          return a;
+        }
+      })
+    );
+    this.articles = list;
+  }
+
   async loadArticles() {
     try {
       const data = await ajax("/tag/hacf-blog.json");
@@ -65,6 +85,7 @@ export default class HacfHome extends Component {
         .map((t) => {
           const m = String(t.title).match(/^\s*\[([^\]]+)\]\s*(.*)$/);
           return {
+            id: t.id,
             url: `/t/${t.slug}/${t.id}`,
             title: m ? m[2] : t.title,
             badge: m ? m[1] : "",
@@ -72,6 +93,7 @@ export default class HacfHome extends Component {
             date: fmtDate.format(new Date(t.created_at)),
           };
         });
+      this.loadArticleImages();
     } catch {
       // pas d'articles : la section reste cachée
     }
