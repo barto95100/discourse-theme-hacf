@@ -2847,3 +2847,35 @@ body {
   }
 }
 
+
+// Listes de sujets : titre sur une seule ligne, tronqué avec …
+.topic-list {
+  .main-link {
+    min-width: 0;
+    max-width: 0;   // permet à la cellule de rétrécir et à l'ellipse de fonctionner
+    width: 100%;
+
+    .link-top-line {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      min-width: 0;
+      flex-wrap: nowrap;
+
+      .topic-statuses,
+      .topic-post-badges,
+      .badge-wrapper {
+        flex: none;
+      }
+
+      a.title {
+        flex: 0 1 auto;
+        min-width: 0;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
