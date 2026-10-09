@@ -1881,3 +1881,12 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
     color: var(--primary-high);
   }
 }
+
+// Accueil : publications sur une seule ligne
+.hacf-news__list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
