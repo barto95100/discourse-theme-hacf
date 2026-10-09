@@ -1413,3 +1413,28 @@ html[lang^="en"] .login-fullpage .login-welcome-header::after {
   content: none !important;
   display: none !important;
 }
+
+/* ===== Connexion / inscription : v4 (logo login + branches enfants) ===== */
+
+/* Logo : 4 boutons sur la page de connexion, donc plus haut */
+.login-fullpage .login-right-side::before {
+  bottom: calc(50% + 144px);
+}
+
+/* Circuits avec branches enfants */
+$hacf-circ-paths: "<path d='M200 90H150L120 60H60M200 150H100L70 120H20M200 180H30M200 210H100L70 240H20M200 270H150L120 300H60'/><path stroke-width='1.1' d='M135 75H98M100 60L88 48H70M150 150L130 170H92M45 120V138M170 180L155 195H125M150 210L135 225H112M180 270L165 255H135M45 240V262'/><circle cx='54' cy='60' r='5'/><circle cx='14' cy='120' r='5'/><circle cx='24' cy='180' r='5'/><circle cx='14' cy='240' r='5'/><circle cx='54' cy='300' r='5'/><g stroke-width='1.1'><circle cx='95' cy='75' r='3'/><circle cx='67' cy='48' r='3'/><circle cx='89' cy='170' r='3'/><circle cx='45' cy='141' r='3'/><circle cx='122' cy='195' r='3'/><circle cx='109' cy='225' r='3'/><circle cx='132' cy='255' r='3'/><circle cx='45' cy='265' r='3'/></g>";
+
+$hacf-circ-left: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 360' fill='none' stroke='%231a7bff' stroke-opacity='.6' stroke-width='1.5' stroke-linejoin='round'>#{$hacf-circ-paths}</svg>");
+$hacf-circ-right: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 360' fill='none' stroke='%23ff3d38' stroke-opacity='.55' stroke-width='1.5' stroke-linejoin='round'><g transform='translate(200 0) scale(-1 1)'>#{$hacf-circ-paths}</g></svg>");
+$hacf-circ-top: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 200' fill='none' stroke='%238b5aa8' stroke-opacity='.6' stroke-width='1.5' stroke-linejoin='round'><g transform='matrix(0 1 1 0 0 0)'>#{$hacf-circ-paths}</g></svg>");
+$hacf-circ-bottom: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 200' fill='none' stroke='%238b5aa8' stroke-opacity='.6' stroke-width='1.5' stroke-linejoin='round'><g transform='matrix(0 -1 1 0 0 200)'>#{$hacf-circ-paths}</g></svg>");
+
+.login-fullpage .login-body::before,
+.signup-fullpage .signup-body::before,
+.signup-fullpage .login-body::before {
+  background:
+    $hacf-circ-top top center / 360px 200px no-repeat,
+    $hacf-circ-bottom bottom center / 360px 200px no-repeat,
+    $hacf-circ-left left center / 200px 360px no-repeat,
+    $hacf-circ-right right center / 200px 360px no-repeat;
+}
