@@ -2548,3 +2548,17 @@ body {
 .sidebar-wrapper .sidebar-footer-wrapper::before {
   display: none;
 }
+
+/* Sidebar : espace en bas identique à celui du haut */
+.sidebar-wrapper .sidebar-container {
+  height: calc(100% - 1rem);
+  max-height: calc(100% - 1rem);
+}
+
+/* Sidebar : suppression des fondus de couleur d'origine autour du pied */
+.sidebar-wrapper .sidebar-footer-wrapper::before,
+.sidebar-wrapper .sidebar-footer-wrapper::after,
+.sidebar-wrapper .sidebar-footer-container::before,
+.sidebar-wrapper .sidebar-footer-container::after {
+  display: none;
+}
