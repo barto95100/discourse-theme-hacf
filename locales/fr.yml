@@ -4,3 +4,7 @@ fr:
   top_title: "Meilleurs contributeurs"
   top_note: "Cette semaine · « j'aime » reçus"
   card_counts: "%{topics} sujets · %{posts} messages"
+  home_title: "Bienvenue sur Home Assistant Communauté Francophone"
+  home_subtitle: "Entraide, tutoriels et projets autour de Home Assistant, par et pour la communauté francophone."
+  home_cta_signup: "Créer un compte"
+  home_cta_browse: "Parcourir les sujets"

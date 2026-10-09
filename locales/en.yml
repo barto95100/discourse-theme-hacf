@@ -4,3 +4,7 @@ en:
   top_title: "Top contributors"
   top_note: "This week · likes received"
   card_counts: "%{topics} topics · %{posts} posts"
+  home_title: "Welcome to Home Assistant French-speaking Community"
+  home_subtitle: "Help, tutorials and projects around Home Assistant, by and for the French-speaking community."
+  home_cta_signup: "Create an account"
+  home_cta_browse: "Browse topics"

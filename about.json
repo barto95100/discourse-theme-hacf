@@ -40,7 +40,8 @@
       "success": "4AD39A",
       "love": "FF6B66"
     }
+  },
+  "modifiers": {
+    "custom_homepage": true
   }
 }
-
-
