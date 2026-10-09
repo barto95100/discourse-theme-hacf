@@ -1891,15 +1891,12 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   }
 }
 
-// Halo de fond global : bleu (haut gauche) -> violet -> rouge (haut droite)
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(85vw 65vh at 5% -10%, color-mix(in srgb, #1a7bff 32%, transparent), transparent 70%),
-    radial-gradient(80vw 60vh at 98% -10%, color-mix(in srgb, #ff3d38 26%, transparent), transparent 70%),
-    radial-gradient(90vw 55vh at 50% 110%, color-mix(in srgb, #8b5aa8 20%, transparent), transparent 70%);
+// Halo de fond global : bleu (haut gauche) -> violet (bas) -> rouge (haut droite)
+html {
+  background-image:
+    radial-gradient(85vw 65vh at 5% -10%, color-mix(in srgb, #1a7bff 36%, transparent), transparent 70%),
+    radial-gradient(80vw 60vh at 98% -10%, color-mix(in srgb, #ff3d38 30%, transparent), transparent 70%),
+    radial-gradient(90vw 55vh at 50% 110%, color-mix(in srgb, #8b5aa8 22%, transparent), transparent 70%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
