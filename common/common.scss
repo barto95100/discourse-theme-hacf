@@ -1905,7 +1905,8 @@ html {
 .welcome-banner {
   border-color: transparent !important;
   box-shadow: none !important;
-  background: transparent !important;
+  -webkit-mask-image: radial-gradient(ellipse 72% 88% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 72% 88% at 50% 50%, #000 62%, transparent 100%);
 }
 
 // Sélecteurs et boutons arrondis, comme le reste du thème
