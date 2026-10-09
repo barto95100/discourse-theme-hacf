@@ -6,12 +6,6 @@ import { service } from "@ember/service";
 import icon from "discourse/helpers/d-icon";
 import { i18n } from "discourse-i18n";
 
-const ICONS = {
-  info: "circle-info",
-  success: "circle-check",
-  warning: "triangle-exclamation",
-};
-
 function hash(str) {
   let h = 5381;
   for (let i = 0; i < str.length; i++) {
@@ -67,11 +61,9 @@ export default class HacfBanner extends Component {
   }
 
   get type() {
-    return ICONS[settings.banner_type] ? settings.banner_type : "info";
-  }
-
-  get iconName() {
-    return ICONS[this.type];
+    return ["info", "success", "warning"].includes(settings.banner_type)
+      ? settings.banner_type
+      : "info";
   }
 
   get hasLink() {
@@ -91,12 +83,9 @@ export default class HacfBanner extends Component {
   <template>
     {{#if this.show}}
       <div class="hacf-banner hacf-banner--{{this.type}}" role="status">
-        <span class="hacf-banner__lead">
-          {{#if settings.banner_badge}}
-            <span class="hacf-banner__badge">{{settings.banner_badge}}</span>
-          {{/if}}
-          <span class="hacf-banner__icon">{{icon this.iconName}}</span>
-        </span>
+        {{#if settings.banner_badge}}
+          <span class="hacf-banner__badge">{{settings.banner_badge}}</span>
+        {{/if}}
         <span class="hacf-banner__body">
           <span class="hacf-banner__text">{{this.message}}</span>
         </span>

@@ -3069,17 +3069,30 @@ body {
   }
 }
 
-// Bandeau : badge au-dessus de l'icône (colonne de gauche)
+// Bandeau : badge + texte alignés sur la même ligne, centrés
 .hacf-banner {
+  justify-content: center;
+  gap: 0.9rem;
+  text-align: left;
+
+  &__icon,
   &__lead {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    display: none;
   }
 
   &__body {
+    flex: 0 1 auto;
     justify-content: center;
+  }
+
+  &__badge {
+    flex: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    align-self: auto;
   }
 }
