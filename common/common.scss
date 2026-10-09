@@ -944,3 +944,21 @@ body.has-sidebar-page {
 .topic-post.accepted-answer .post-info.solution {
   color: var(--success);
 }
+
+/* Réponse « Solved » (affichée comme une citation par le plugin) */
+.cooked aside.quote.accepted-answer {
+  border: 1px solid color-mix(in srgb, var(--success) 40%, transparent);
+  border-left: 4px solid var(--success);
+  background: color-mix(in srgb, var(--success) 5%, var(--secondary));
+  border-radius: 12px;
+  overflow: hidden;
+}
+.cooked aside.quote.accepted-answer > .title {
+  background: color-mix(in srgb, var(--success) 16%, var(--secondary)) !important;
+  color: var(--success) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.cooked aside.quote.accepted-answer > .title .d-icon {
+  color: var(--success);
+}
