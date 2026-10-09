@@ -2755,3 +2755,15 @@ body:has(.hacf-home) .hacf-footer {
   box-shadow: 0 6px 24px color-mix(in srgb, var(--tertiary) 10%, transparent);
   overflow: hidden;
 }
+
+/* Sidebar : même fond que la carte de contenu + défilement propre */
+.sidebar-wrapper .sidebar-container {
+  padding-top: 0.5rem;
+  background: color-mix(in srgb, var(--tertiary) 5%, var(--secondary));
+}
+
+.sidebar-wrapper .sidebar-sections {
+  background: transparent;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 0.9rem);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 0.9rem);
+}
