@@ -2332,3 +2332,58 @@ body {
     color: var(--primary-high);
   }
 }
+
+// Accueil : nouvelle disposition (piliers en pastilles, équipe en bande)
+.hacf-home {
+  .hacf-pillars {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .hacf-news         { grid-column: 1 / 9;  grid-row: 3 / span 2; }
+  .hacf-home__stats  { grid-column: 9 / -1; grid-row: 3; }
+  .hacf-upcoming     { grid-column: 9 / -1; grid-row: 4; }
+  .hacf-team         { grid-column: 1 / -1; grid-row: 5; }
+  .hacf-steps        { grid-row: 6; }
+
+  &:not(:has(.hacf-upcoming)) .hacf-news { grid-column: 1 / 9; }
+  &:not(:has(.hacf-upcoming)) .hacf-team { grid-row: 5; }
+  &:not(:has(.hacf-news)) .hacf-upcoming { grid-column: 9 / -1; }
+}
+
+.hacf-home .hacf-pillars .hacf-pillar {
+  flex: 0 1 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 16px;
+
+  .hacf-pillar__icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+  }
+
+  .hacf-pillar__title {
+    margin: 0;
+    font-size: var(--font-0);
+  }
+
+  .hacf-pillar__desc {
+    display: none;
+  }
+
+  .hacf-pillar__count {
+    margin: 0;
+    font-size: var(--font-down-1);
+  }
+}
+
+.hacf-home .hacf-team .hacf-team__list {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
