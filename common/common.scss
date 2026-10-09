@@ -1970,3 +1970,14 @@ body {
     box-shadow: inset 4px 0 0 var(--tertiary);
   }
 }
+
+// Messages en cartes : retouches
+.topic-post {
+  .topic-avatar {
+    border-top: none;
+  }
+
+  article.boxed {
+    background: color-mix(in srgb, var(--primary) 4%, var(--secondary));
+  }
+}
