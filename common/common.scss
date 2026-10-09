@@ -718,3 +718,38 @@ body.has-sidebar-page {
     overflow: hidden;
   }
 }
+
+// ============================================================
+// Cartes de catégories : icône + titre sur une ligne, chiffres dessous
+// ============================================================
+.hacf-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.8rem;
+  row-gap: 0.6rem;
+  padding: 1rem 1.1rem;
+
+  &__icon {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--hacf-card-color, var(--tertiary)) 16%, transparent);
+  }
+
+  &__title {
+    grid-column: 2;
+  }
+
+  &__count {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    text-align: center;
+    color: var(--primary-medium);
+    font-weight: 500;
+  }
+}
