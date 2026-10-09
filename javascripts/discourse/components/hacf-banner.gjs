@@ -91,11 +91,13 @@ export default class HacfBanner extends Component {
   <template>
     {{#if this.show}}
       <div class="hacf-banner hacf-banner--{{this.type}}" role="status">
-        <span class="hacf-banner__icon">{{icon this.iconName}}</span>
-        <span class="hacf-banner__body">
+        <span class="hacf-banner__lead">
           {{#if settings.banner_badge}}
             <span class="hacf-banner__badge">{{settings.banner_badge}}</span>
           {{/if}}
+          <span class="hacf-banner__icon">{{icon this.iconName}}</span>
+        </span>
+        <span class="hacf-banner__body">
           <span class="hacf-banner__text">{{this.message}}</span>
         </span>
         {{#if this.hasLink}}

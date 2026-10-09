@@ -3069,32 +3069,17 @@ body {
   }
 }
 
-// Bandeau : badge intégré à la phrase, contenu centré
+// Bandeau : badge au-dessus de l'icône (colonne de gauche)
 .hacf-banner {
-  justify-content: center;
-  text-align: center;
+  &__lead {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
   &__body {
-    display: block;
-    flex: 0 1 auto;
-  }
-
-  &__badge {
-    display: inline-block;
-    margin-right: 0.6rem;
-    vertical-align: 0.12em;
-  }
-
-  &__text {
-    display: inline;
-    font-size: var(--font-up-1);
-    font-weight: 500;
-  }
-
-  &__close {
-    position: absolute;
-    top: 0.45rem;
-    right: 0.45rem;
-    align-self: auto;
+    justify-content: center;
   }
 }
