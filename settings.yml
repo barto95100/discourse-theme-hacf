@@ -37,3 +37,17 @@ hot_topics_count:
 hot_topics_icon:
   type: icon
   default: fire
+
+show_upcoming_events:
+  type: bool
+  default: true
+
+upcoming_events_count:
+  type: integer
+  default: 3
+  min: 1
+  max: 6
+
+upcoming_events_icon:
+  type: icon
+  default: calendar-days
