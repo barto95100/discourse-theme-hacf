@@ -1438,3 +1438,11 @@ $hacf-circ-bottom: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/sv
     $hacf-circ-left left center / 200px 360px no-repeat,
     $hacf-circ-right right center / 200px 360px no-repeat;
 }
+
+/* Mobile : pas de logo flottant dans la carte (il chevauche le texte) */
+@media (max-width: 900px) {
+  .login-fullpage .login-right-side::before,
+  .signup-fullpage .login-right-side::before {
+    display: none;
+  }
+}
