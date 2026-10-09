@@ -1260,3 +1260,25 @@ html[lang^="en"] .login-fullpage .login-welcome-header::after {
   background: url("https://forum.hacf.fr/uploads/default/original/2X/0/05c96477b87c26072f9c263bad1a5f7060762d81.png") center / contain no-repeat;
   filter: drop-shadow(0 6px 18px rgba(139, 90, 168, 0.35));
 }
+
+/* Arbres-circuits en fond (connexion / inscription) */
+body.login-page,
+body.signup-page {
+  background:
+    $hacf-tree no-repeat left 6% top 18% / 260px,
+    $hacf-tree no-repeat right 6% top 18% / 260px,
+    radial-gradient(ellipse 55% 45% at 15% 0%, rgba(26, 123, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 50% -10%, rgba(139, 90, 168, 0.14), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 85% 0%, rgba(255, 61, 56, 0.12), transparent 70%),
+    var(--secondary);
+  background-attachment: fixed;
+}
+
+@media (max-width: 900px) {
+  body.login-page,
+  body.signup-page {
+    background:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(139, 90, 168, 0.16), transparent 70%),
+      var(--secondary);
+  }
+}
