@@ -1446,3 +1446,32 @@ $hacf-circ-bottom: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/sv
     display: none;
   }
 }
+
+/* ===== Colonne d'avantages sous les boutons (connexion / inscription) ===== */
+.login-fullpage .login-right-side::after,
+.signup-fullpage .login-right-side::after {
+  content: "✓  Posez vos questions\A ✓  Partagez vos projets\A ✓  Participez aux événements";
+  white-space: pre-line;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(50% + 100px);
+  width: max-content;
+  text-align: left;
+  line-height: 2;
+  font-size: var(--font-0);
+  color: var(--primary-high);
+}
+.login-fullpage .login-right-side::after {
+  top: calc(50% + 130px);
+}
+html[lang^="en"] .login-fullpage .login-right-side::after,
+html[lang^="en"] .signup-fullpage .login-right-side::after {
+  content: "✓  Ask your questions\A ✓  Share your projects\A ✓  Join the events";
+}
+@media (max-width: 900px) {
+  .login-fullpage .login-right-side::after,
+  .signup-fullpage .login-right-side::after {
+    display: none;
+  }
+}
