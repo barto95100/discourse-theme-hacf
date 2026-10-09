@@ -2571,73 +2571,6 @@ body {
   border-radius: 8px;
 }
 
-/* Accueil : membres en ligne */
-.hacf-online {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.6rem;
-  margin-top: 0.9rem;
-  font-size: var(--font-down-1);
-  color: var(--primary-medium);
-}
-
-.hacf-online__dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 55%, transparent);
-  animation: hacf-online-pulse 2s infinite;
-}
-
-@keyframes hacf-online-pulse {
-  70% { box-shadow: 0 0 0 0.45rem transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hacf-online__dot { animation: none; }
-}
-
-.hacf-online__count {
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.hacf-online__avatars {
-  display: inline-flex;
-}
-
-.hacf-online__avatar {
-  display: inline-flex;
-  margin-left: -0.45rem;
-
-  &:first-child { margin-left: 0; }
-
-  img {
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
-    border: 2px solid var(--secondary);
-    object-fit: cover;
-  }
-}
-
-.hacf-online__avatars {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.hacf-online__more {
-  padding: 0.15rem 0.55rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--tertiary) 14%, transparent);
-  color: var(--tertiary);
-  font-weight: 700;
-}
-
 // En-tête : icônes (recherche, chat, avatar) lisibles au survol / menu ouvert
 .d-header .d-header-icons {
   .icon,
@@ -2788,7 +2721,6 @@ body {
     color: var(--primary);
   }
 
-
   &--list {
     margin: 0 0 0.75rem;
     padding: 0.45rem 0.9rem;
@@ -2846,7 +2778,6 @@ body {
     animation: none;
   }
 }
-
 
 // Listes de sujets : titre sur une seule ligne, tronqué avec …
 .topic-list {
@@ -2960,20 +2891,6 @@ body {
     --hacf-banner-on: #1b1305;
   }
 
-  &__icon {
-    flex: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.6rem;
-    height: 2.6rem;
-    border-radius: 50%;
-    font-size: 1.15rem;
-    color: var(--hacf-banner-c);
-    background: color-mix(in srgb, var(--hacf-banner-c) 16%, transparent);
-    box-shadow: 0 0 22px color-mix(in srgb, var(--hacf-banner-c) 40%, transparent);
-  }
-
   &__body {
     flex: 1 1 auto;
     min-width: 0;
@@ -3074,11 +2991,6 @@ body {
   justify-content: center;
   gap: 0.9rem;
   text-align: left;
-
-  &__icon,
-  &__lead {
-    display: none;
-  }
 
   &__body {
     flex: 0 1 auto;
