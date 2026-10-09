@@ -1116,3 +1116,32 @@ aside.d-post-accordion.accepted-answers {
   background: color-mix(in srgb, var(--tertiary) 14%, var(--header_background)) !important;
   color: var(--primary) !important;
 }
+
+/* Sélecteur de langue (menu Discourse) : états survol / ouvert */
+.d-header .language-switcher-trigger,
+.d-header .language-switcher-trigger .d-icon,
+.d-header .language-switcher-trigger .d-button-label {
+  color: var(--primary) !important;
+}
+.d-header .language-switcher-trigger:hover,
+.d-header .language-switcher-trigger:focus,
+.d-header .language-switcher-trigger:focus-visible,
+.d-header .language-switcher-trigger:active,
+.d-header .language-switcher-trigger[aria-expanded="true"] {
+  background: color-mix(in srgb, var(--tertiary) 16%, var(--header_background)) !important;
+  color: var(--primary) !important;
+  box-shadow: none;
+}
+
+/* Lignes du menu déroulant */
+.fk-d-menu .dropdown-menu__item .btn,
+.fk-d-menu .dropdown-menu__item a {
+  color: var(--primary) !important;
+}
+.fk-d-menu .dropdown-menu__item .btn:hover,
+.fk-d-menu .dropdown-menu__item .btn:focus,
+.fk-d-menu .dropdown-menu__item a:hover,
+.fk-d-menu .dropdown-menu__item a:focus {
+  background: color-mix(in srgb, var(--tertiary) 16%, var(--secondary)) !important;
+  color: var(--primary) !important;
+}
