@@ -2719,3 +2719,32 @@ body {
     }
   }
 }
+
+// Menu utilisateur : onglets de droite (revamped)
+.user-menu.revamped .tabs-list,
+.user-menu.revamped .menu-tabs-container {
+  .btn,
+  .btn-flat {
+    --d-button-transparent-bg-color--hover: color-mix(in srgb, var(--tertiary) 16%, var(--secondary));
+    --d-button-flat-bg-color--hover: color-mix(in srgb, var(--tertiary) 16%, var(--secondary));
+    --d-sidebar-active-background: color-mix(in srgb, var(--tertiary) 16%, var(--secondary));
+  }
+
+  .btn:hover,
+  .btn:focus,
+  .btn:focus-visible,
+  .btn.active,
+  .btn-flat:hover,
+  .btn-flat:focus,
+  .btn-flat.active {
+    background: color-mix(in srgb, var(--tertiary) 16%, var(--secondary)) !important;
+    background-color: color-mix(in srgb, var(--tertiary) 16%, var(--secondary)) !important;
+    background-image: none !important;
+
+    .d-icon,
+    svg {
+      color: var(--tertiary) !important;
+      fill: var(--tertiary) !important;
+    }
+  }
+}
