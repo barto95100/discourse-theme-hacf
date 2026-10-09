@@ -3159,3 +3159,33 @@ body {
   max-width: none;
   margin: 0 0 1rem;
 }
+
+// Bandeau : bouton contenu dans la card + mise en page mobile
+.hacf-banner a.hacf-banner__link {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .hacf-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+
+    &__body {
+      align-items: center;
+      flex: 1 1 auto;
+    }
+
+    &__text {
+      font-size: var(--font-up-1);
+    }
+
+    a.hacf-banner__link {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
