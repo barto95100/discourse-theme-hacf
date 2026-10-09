@@ -2637,3 +2637,33 @@ body {
   color: var(--tertiary);
   font-weight: 700;
 }
+
+// En-tête : icônes (recherche, chat, avatar) lisibles au survol / menu ouvert
+.d-header .d-header-icons {
+  .icon,
+  .header-dropdown-toggle .icon,
+  .header-dropdown-toggle > .btn {
+    transition: background-color 0.15s ease;
+  }
+
+  .icon:hover,
+  .icon:focus,
+  .icon:focus-visible,
+  .active > .icon,
+  .active .icon,
+  .header-dropdown-toggle:hover > .icon,
+  .header-dropdown-toggle.active > .icon,
+  .btn-flat:hover,
+  .btn-flat:focus,
+  .btn-flat.active {
+    background: color-mix(in srgb, var(--tertiary) 16%, transparent);
+    color: var(--header_primary, var(--primary));
+    border-radius: 10px;
+
+    .d-icon,
+    svg {
+      color: var(--header_primary, var(--primary));
+      fill: currentColor;
+    }
+  }
+}
