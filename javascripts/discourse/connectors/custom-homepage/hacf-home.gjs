@@ -29,6 +29,10 @@ export default class HacfHome extends Component {
                 name: cat.name,
                 url: cat.url,
                 description: String(item.description ?? ""),
+                counts: i18n(themePrefix("card_counts"), {
+                  topics: cat.topic_count ?? 0,
+                  posts: cat.post_count ?? 0,
+                }),
               }
             : null;
         })
@@ -80,6 +84,7 @@ export default class HacfHome extends Component {
           <a class="hacf-pillar" href={{pillar.url}}>
             <h3 class="hacf-pillar__title">{{pillar.name}}</h3>
             <p class="hacf-pillar__desc">{{pillar.description}}</p>
+            <span class="hacf-pillar__count">{{pillar.counts}}</span>
           </a>
         {{/each}}
       </section>
