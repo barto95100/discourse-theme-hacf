@@ -76,10 +76,10 @@ export default class HacfHome extends Component {
       </section>
 
       <section class="hacf-pillars">
-        {{#each this.pillars as |p|}}
-          <a class="hacf-pillar" href={{p.url}}>
-            <h3 class="hacf-pillar__title">{{p.name}}</h3>
-            <p class="hacf-pillar__desc">{{p.description}}</p>
+        {{#each this.pillars as |pillar|}}
+          <a class="hacf-pillar" href={{pillar.url}}>
+            <h3 class="hacf-pillar__title">{{pillar.name}}</h3>
+            <p class="hacf-pillar__desc">{{pillar.description}}</p>
           </a>
         {{/each}}
       </section>
