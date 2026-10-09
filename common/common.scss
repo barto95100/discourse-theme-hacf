@@ -2691,3 +2691,21 @@ body:has(.hacf-home) .hacf-footer {
 .mobile-view .hacf-footer {
   --hf-sw: 0px;
 }
+
+/* Footer : positionnement simplifié (remplace le calcul avec --hf-sw) */
+.hacf-footer {
+  max-width: 1110px;
+  margin: 3rem auto 0;
+  padding: 2.2rem 1rem 1.2rem;
+
+  &::before {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .has-sidebar-page .hacf-footer {
+    transform: translateX(112px);
+  }
+}
