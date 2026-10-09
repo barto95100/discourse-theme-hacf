@@ -70,3 +70,8 @@ top_contributors_exclude:
   type: string
   default: ""
   description: "Pseudos à exclure du classement, séparés par des virgules (sans @)"
+
+top_contributors_leaderboard_id:
+  type: integer
+  default: 2
+  min: 1

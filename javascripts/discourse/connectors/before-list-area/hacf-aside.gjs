@@ -107,28 +107,31 @@ export default class HacfAside extends Component {
     }
     const exclude = (settings.top_contributors_exclude || "")
       .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .join(",");
-    let url = `/directory_items.json?period=weekly&order=likes_received&limit=${settings.top_contributors_count}`;
-    if (exclude) {
-      url += `&exclude_usernames=${encodeURIComponent(exclude)}`;
-    }
+      .map((x) => x.trim().toLowerCase())
+      .filter(Boolean);
+    const count = settings.top_contributors_count;
+    const id = settings.top_contributors_leaderboard_id;
     let data;
     try {
-      data = await ajax(url);
+      data = await ajax(`/leaderboard/${id}.json`, {
+        data: { period: "weekly", user_limit: count + exclude.length + 5 },
+      });
     } catch {
       return;
     }
     const fmtNumber = new Intl.NumberFormat(locale());
-    this.contributors = (data?.directory_items || [])
-      .filter((i) => (i.likes_received || 0) > 0 || (i.post_count || 0) > 0)
-      .slice(0, settings.top_contributors_count)
-      .map((i) => ({
-        url: `/u/${i.user.username}`,
-        name: i.user.username,
-        avatar: i.user.avatar_template?.replace("{size}", "64"),
-        score: fmtNumber.format(i.likes_received ?? i.post_count ?? 0),
+    this.contributors = (data?.users || [])
+      .filter(
+        (u) =>
+          (u.total_score || 0) > 0 &&
+          !exclude.includes(u.username.toLowerCase())
+      )
+      .slice(0, count)
+      .map((u) => ({
+        url: `/u/${u.username}`,
+        name: u.username,
+        avatar: u.avatar_template?.replace("{size}", "64"),
+        score: fmtNumber.format(u.total_score),
       }));
   }
 
@@ -220,7 +223,7 @@ export default class HacfAside extends Component {
                       loading="lazy"
                     />
                     <span class="hacf-top__name">{{c.name}}</span>
-                    <span class="hacf-top__score">{{icon "heart"}}
+                    <span class="hacf-top__score">{{icon "star"}}
                       {{c.score}}</span>
                   </a>
                 </li>
