@@ -76,7 +76,7 @@ export default class HacfHome extends Component {
             rank(a.title) - rank(b.title) ||
             a.username.localeCompare(b.username)
         )
-        .slice(0, 12)
+        .slice(0, 30)
         .map((m) => ({
           name: m.name || m.username,
           url: `/u/${m.username}`,

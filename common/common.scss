@@ -2457,3 +2457,26 @@ body {
     grid-template-rows: none;
   }
 }
+
+// Accueil : tuiles alignées sur le haut des cartes de publications
+.hacf-home .hacf-news .hacf-news__title {
+  height: 2rem;
+  margin: 0 0 0.9rem;
+  line-height: 2rem;
+}
+
+.hacf-home .hacf-home__stats {
+  margin-top: 2.9rem;
+}
+
+// Accueil : équipe, dernière ligne centrée
+.hacf-home .hacf-team .hacf-team__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+
+  .hacf-team-member {
+    flex: 0 1 210px;
+  }
+}
