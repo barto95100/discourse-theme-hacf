@@ -69,7 +69,7 @@ export default class HacfHome extends Component {
       };
       this.team = (data?.members || [])
         .filter(
-          (m) => m.username && m.username !== "Equipe_HACF" && rank(m.title) < 9
+          (m) => m.username && m.username !== "Equipe_HACF"
         )
         .sort(
           (a, b) =>
