@@ -1084,3 +1084,8 @@ aside.d-post-accordion.accepted-answers {
 .d-header .login-button:hover .d-icon {
   color: inherit !important;
 }
+
+/* Bannière : plus d'espace entre le titre et la recherche */
+.welcome-banner__title {
+  margin-bottom: 1.2rem;
+}
