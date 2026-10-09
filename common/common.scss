@@ -981,3 +981,12 @@ aside.d-post-accordion.accepted-answers {
 .accepted-answers .accepted-answers__title .d-icon {
   color: var(--success) !important;
 }
+
+/* Solved : le fond est sur l'en-tête, pas sur le titre */
+.accepted-answers .d-post-accordion__header {
+  background: color-mix(in srgb, var(--success) 16%, var(--secondary)) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--success) 30%, transparent);
+}
+.accepted-answers .accepted-answers__title {
+  background: transparent !important;
+}
