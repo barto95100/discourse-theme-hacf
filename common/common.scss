@@ -1772,3 +1772,24 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
     font-weight: 600;
   }
 }
+
+// Accueil : cartes centrées quand il y en a moins de 3
+.hacf-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  .hacf-pillar {
+    flex: 0 1 calc((100% - 2rem) / 3);
+
+    @media (max-width: 800px) {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.hacf-upcoming__list {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 380px));
+  justify-content: center;
+}
