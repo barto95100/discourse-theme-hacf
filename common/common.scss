@@ -2530,3 +2530,34 @@ body {
     background: var(--tertiary-very-low);
   }
 }
+
+// Accueil : équipe, colonnes de largeur proportionnelle à l'effectif
+.hacf-home .hacf-team .hacf-team__groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.2rem;
+}
+
+.hacf-team-group {
+  &[data-cols="1"] { flex: 1 1 190px; }
+  &[data-cols="2"] { flex: 2 1 400px; }
+
+  .hacf-team-group__members {
+    display: block;
+  }
+
+  &[data-cols="2"] .hacf-team-group__members {
+    column-count: 2;
+    column-gap: 1.4rem;
+  }
+
+  .hacf-team-member {
+    break-inside: avoid;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .hacf-team-member__avatar {
+    width: 38px;
+    height: 38px;
+  }
+}
