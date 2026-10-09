@@ -2739,3 +2739,19 @@ body:has(.hacf-home) .hacf-footer {
 .admin-contents {
   padding: 0;
 }
+
+/* Sidebar : même style de carte que le reste (admin + forum) */
+.sidebar-wrapper {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.sidebar-wrapper .sidebar-container {
+  margin: 0.5rem 0.5rem 0.5rem 0.25rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--tertiary) 22%, transparent);
+  background: color-mix(in srgb, var(--tertiary) 5%, var(--secondary));
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--tertiary) 10%, transparent);
+  overflow: hidden;
+}
