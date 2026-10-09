@@ -110,12 +110,27 @@ export default class HacfHome extends Component {
         if (a.image) {
           return a;
         }
+        const key = `hacf-thumb-${a.id}`;
+        try {
+          const cached = sessionStorage.getItem(key);
+          if (cached !== null) {
+            return { ...a, image: cached || null };
+          }
+        } catch {
+          // stockage indisponible : on interroge le serveur
+        }
         try {
           const d = await ajax(`/t/${a.id}.json`);
           const html = d?.post_stream?.posts?.[0]?.cooked || "";
           const doc = new DOMParser().parseFromString(html, "text/html");
           const img = doc.querySelector("img.thumbnail");
-          return { ...a, image: img?.getAttribute("src") || null };
+          const src = img?.getAttribute("src") || null;
+          try {
+            sessionStorage.setItem(key, src || "");
+          } catch {
+            // ignoré
+          }
+          return { ...a, image: src };
         } catch {
           return a;
         }
