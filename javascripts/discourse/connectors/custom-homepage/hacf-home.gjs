@@ -12,6 +12,7 @@ export default class HacfHome extends Component {
   @tracked stats = null;
   @tracked events = [];
   @tracked articles = [];
+  @tracked contributors = [];
 
   constructor() {
     super(...arguments);
@@ -19,6 +20,7 @@ export default class HacfHome extends Component {
     this.loadStats();
     this.loadEvents();
     this.loadArticles();
+    this.loadContributors();
   }
 
   pillars = [];
@@ -46,6 +48,24 @@ export default class HacfHome extends Component {
         .filter(Boolean);
     } catch {
       return [];
+    }
+  }
+
+  async loadContributors() {
+    try {
+      const data = await ajax(
+        "/directory_items.json?period=weekly&order=likes_received&exclude_usernames=system,discobot"
+      );
+      this.contributors = (data?.directory_items || [])
+        .filter((i) => i.user?.avatar_template)
+        .slice(0, 8)
+        .map((i) => ({
+          name: i.user.username,
+          url: `/u/${i.user.username}`,
+          avatar: i.user.avatar_template.replace("{size}", "96"),
+        }));
+    } catch {
+      // pas de contributeurs : la bande reste cachée
     }
   }
 
