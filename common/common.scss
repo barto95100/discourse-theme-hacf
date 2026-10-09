@@ -258,3 +258,16 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+// Cartes : même couleur de texte, que le lien ait été visité ou non
+.hacf-card,
+.hacf-card:visited,
+.hacf-card:hover,
+.hacf-card:active,
+.hacf-card:focus {
+  color: var(--primary);
+}
+
+.hacf-card__title {
+  color: var(--primary);
+}
