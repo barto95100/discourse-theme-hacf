@@ -1894,9 +1894,25 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
 // Halo de fond global : bleu (haut gauche) -> violet (bas) -> rouge (haut droite)
 html {
   background-image:
-    radial-gradient(75vw 55vh at 3% -10%, color-mix(in srgb, #1a7bff 17%, transparent), transparent 70%),
-    radial-gradient(70vw 50vh at 99% -10%, color-mix(in srgb, #ff3d38 14%, transparent), transparent 70%),
-    radial-gradient(80vw 45vh at 50% 110%, color-mix(in srgb, #8b5aa8 11%, transparent), transparent 70%);
+    radial-gradient(85vw 65vh at 5% -10%, color-mix(in srgb, #1a7bff 36%, transparent), transparent 70%),
+    radial-gradient(80vw 60vh at 98% -10%, color-mix(in srgb, #ff3d38 30%, transparent), transparent 70%),
+    radial-gradient(90vw 55vh at 50% 110%, color-mix(in srgb, #8b5aa8 22%, transparent), transparent 70%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+// Bannière de bienvenue : plus de cadre, elle se fond dans le halo
+.welcome-banner {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+// Sélecteurs et boutons arrondis, comme le reste du thème
+.select-kit .select-kit-header,
+.category-breadcrumb .select-kit-header,
+.language-switcher-trigger,
+.nav-pills > li > a,
+.nav-pills > li > button {
+  border-radius: 12px !important;
 }
