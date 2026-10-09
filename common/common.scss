@@ -3255,3 +3255,30 @@ body {
     }
   }
 }
+
+// Petits écrans : boutons d'en-tête plus compacts pour laisser la place au logo
+@media (max-width: 480px) {
+  .d-header {
+    .header-buttons {
+      gap: 0.25rem;
+
+      .btn {
+        padding: 0.45rem 0.7rem;
+        font-size: var(--font-down-1);
+
+        .d-icon {
+          display: none;
+        }
+      }
+    }
+
+    .d-header-icons {
+      gap: 0;
+
+      .language-switcher-trigger {
+        padding: var(--space-1) var(--space-2);
+        margin-right: 0;
+      }
+    }
+  }
+}
