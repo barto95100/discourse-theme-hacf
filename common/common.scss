@@ -2039,3 +2039,16 @@ body {
     inset 4px 0 0 var(--tertiary),
     0 4px 18px color-mix(in srgb, var(--tertiary) 8%, transparent);
 }
+
+// Ligne « dernière visite » : même largeur que les cartes
+.topic-post-visited {
+  width: 100%;
+  max-width: none;
+}
+
+.topic-post-visited-line {
+  left: 0;
+  right: 0;
+  width: auto;
+  max-width: none;
+}
