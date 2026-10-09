@@ -56,7 +56,7 @@ export default class HacfHotTopics extends Component {
   <template>
     {{#if this.visible}}
       <section class="hacf-hot">
-        <h2 class="hacf-hot__title">{{icon "fire"}} Sujets chauds</h2>
+        <h2 class="hacf-hot__title">{{icon settings.hot_topics_icon}} Sujets chauds</h2>
         <ul class="hacf-hot__list">
           {{#each this.topics as |topic|}}
             <li class="hacf-hot__item" style={{topic.style}}>
