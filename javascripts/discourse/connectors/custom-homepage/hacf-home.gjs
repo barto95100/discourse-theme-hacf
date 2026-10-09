@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
+import Category from "discourse/models/category";
 import { i18n } from "discourse-i18n";
 
 export default class HacfHome extends Component {
@@ -12,6 +13,20 @@ export default class HacfHome extends Component {
   constructor() {
     super(...arguments);
     this.loadStats();
+  }
+
+  get pillars() {
+    try {
+      return (settings.featured_categories || [])
+        .map((item) => {
+          const id = item.category?.[0];
+          const cat = id ? Category.findById(id) : null;
+          return cat ? { name: cat.name, url: cat.url } : null;
+        })
+        .filter(Boolean);
+    } catch {
+      return [];
+    }
   }
 
   async loadStats() {
@@ -49,6 +64,12 @@ export default class HacfHome extends Component {
               (themePrefix "home_cta_browse")
             }}</a>
         </div>
+      </section>
+
+      <section class="hacf-pillars">
+        {{#each this.pillars as |p|}}
+          <a class="hacf-pillar" href={{p.url}}>{{p.name}}</a>
+        {{/each}}
       </section>
 
       {{#if this.stats}}
