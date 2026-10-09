@@ -2005,3 +2005,17 @@ body {
     padding-bottom: 0.2rem;
   }
 }
+
+// Messages en cartes : le texte occupe toute la largeur de la carte
+.topic-post {
+  article.boxed .row {
+    display: flex;
+  }
+
+  .topic-body {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+  }
+}
