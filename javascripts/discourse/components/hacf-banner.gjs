@@ -16,6 +16,8 @@ function hash(str) {
 
 export default class HacfBanner extends Component {
   @service router;
+  @service site;
+  @service currentUser;
   @tracked closed = false;
 
   get message() {
@@ -46,6 +48,13 @@ export default class HacfBanner extends Component {
     }
   }
 
+  get placementOk() {
+    const welcome = this.args.placement === "welcome";
+    // La zone de bienvenue n'existe que pour les membres connectés, hors mobile
+    const hasWelcome = this.currentUser && !this.site.mobileView;
+    return welcome ? hasWelcome : !hasWelcome;
+  }
+
   get onDiscovery() {
     return (this.router.currentRouteName || "").startsWith("discovery.");
   }
@@ -56,7 +65,8 @@ export default class HacfBanner extends Component {
       this.message &&
       !this.expired &&
       !this.dismissed &&
-      this.onDiscovery
+      this.onDiscovery &&
+      this.placementOk
     );
   }
 
@@ -82,7 +92,10 @@ export default class HacfBanner extends Component {
 
   <template>
     {{#if this.show}}
-      <div class="hacf-banner hacf-banner--{{this.type}}" role="status">
+      <div
+        class="hacf-banner hacf-banner--{{this.type}} hacf-banner--{{@placement}}"
+        role="status"
+      >
         {{#if settings.banner_badge}}
           <span class="hacf-banner__badge">{{settings.banner_badge}}</span>
         {{/if}}

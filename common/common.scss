@@ -3149,3 +3149,13 @@ body {
     }
   }
 }
+
+// Bandeau : ne dépasse plus (iPad) + placement au-dessus de la liste
+.hacf-banner {
+  box-sizing: border-box;
+}
+
+.hacf-banner--list {
+  max-width: none;
+  margin: 0 0 1rem;
+}

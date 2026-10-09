@@ -1,3 +1,3 @@
 import HacfBanner from "../../components/hacf-banner";
 
-<template><HacfBanner /></template>
+<template><HacfBanner @placement="welcome" /></template>
