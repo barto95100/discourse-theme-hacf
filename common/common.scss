@@ -3282,3 +3282,30 @@ body {
     }
   }
 }
+
+// Petits écrans : le logo (img dans <picture>) rétrécit proprement
+@media (max-width: 480px) {
+  .d-header {
+    .home-logo-wrapper-outlet,
+    .title {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .title a,
+    .title picture {
+      display: block;
+      min-width: 0;
+    }
+
+    .title img#site-logo {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 2.25rem;
+      object-fit: contain;
+      object-position: left center;
+    }
+  }
+}
