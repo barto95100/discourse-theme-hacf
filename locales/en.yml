@@ -9,7 +9,7 @@ en:
   footer_join: "Join us"
   footer_discord: "Discord"
   footer_facebook: "Facebook"
-  footer_about: "About"
+  footer_about: "Guidelines"
   footer_tos: "Terms of service"
   footer_privacy: "Privacy"
   footer_rights: "© %{year} HACF — Home Assistant Communauté Francophone"

@@ -29,7 +29,7 @@ export default class HacfFooter extends Component {
 
         <nav class="hacf-footer__col">
           <h4>{{i18n (themePrefix "footer_col_forum")}}</h4>
-          <a href="/about">{{i18n (themePrefix "footer_about")}}</a>
+          <a href="/guidelines">{{i18n (themePrefix "footer_about")}}</a>
           <a href="/tos">{{i18n (themePrefix "footer_tos")}}</a>
           <a href="/privacy">{{i18n (themePrefix "footer_privacy")}}</a>
         </nav>
