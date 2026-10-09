@@ -4,6 +4,14 @@ import { htmlSafe } from "@ember/template";
 import icon from "discourse/helpers/d-icon";
 import Category from "discourse/models/category";
 
+// La catégorie + toutes ses sous-catégories, à tous les niveaux
+function withDescendants(cat) {
+  const subs = cat.subcategories || [];
+  return [cat, ...subs.flatMap(withDescendants)];
+}
+
+const fmt = (n) => (n || 0).toLocaleString("fr-FR");
+
 export default class HacfFeaturedCategories extends Component {
   @service router;
 
@@ -23,12 +31,16 @@ export default class HacfFeaturedCategories extends Component {
         if (!cat) {
           return null;
         }
+        const all = withDescendants(cat);
+        const topics = all.reduce((sum, c) => sum + (c.topic_count || 0), 0);
+        const posts = all.reduce((sum, c) => sum + (c.post_count || 0), 0);
         return {
           url: cat.url,
           name: item.title || cat.name,
           description: item.description || cat.description_text || "",
           icon: item.icon || "layer-group",
-          count: cat.topic_count,
+          topics: fmt(topics),
+          posts: fmt(posts),
           style: htmlSafe(`--hacf-card-color: #${cat.color};`),
         };
       })
@@ -43,7 +55,7 @@ export default class HacfFeaturedCategories extends Component {
             <span class="hacf-card__icon">{{icon card.icon}}</span>
             <span class="hacf-card__title">{{card.name}}</span>
             <span class="hacf-card__desc">{{card.description}}</span>
-            <span class="hacf-card__count">{{card.count}} sujets</span>
+            <span class="hacf-card__count">{{card.topics}} sujets · {{card.posts}} messages</span>
           </a>
         {{/each}}
       </section>
