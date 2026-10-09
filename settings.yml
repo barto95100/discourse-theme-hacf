@@ -23,3 +23,13 @@ featured_categories:
       icon:
         type: icon
         required: false
+
+show_hot_topics:
+  type: bool
+  default: true
+
+hot_topics_count:
+  type: integer
+  default: 5
+  min: 1
+  max: 10
