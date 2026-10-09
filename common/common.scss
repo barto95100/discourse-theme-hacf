@@ -962,3 +962,22 @@ body.has-sidebar-page {
 .cooked aside.quote.accepted-answer > .title .d-icon {
   color: var(--success);
 }
+
+/* Réponses acceptées (accordéon « Solved ») */
+.cooked aside.accepted-answers,
+aside.d-post-accordion.accepted-answers {
+  border: 1px solid color-mix(in srgb, var(--success) 40%, transparent);
+  border-left: 4px solid var(--success);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--success) 5%, var(--secondary));
+  overflow: hidden;
+}
+.accepted-answers .accepted-answers__title {
+  background: color-mix(in srgb, var(--success) 16%, var(--secondary)) !important;
+  color: var(--success) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.accepted-answers .accepted-answers__title .d-icon {
+  color: var(--success) !important;
+}
