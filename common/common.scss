@@ -2406,161 +2406,6 @@ body {
   }
 }
 
-/* ===== Footer HACF ===== */
-.hacf-footer {
-  position: relative;
-  margin: 3rem auto 0;
-  padding: 2.2rem 1rem 1.2rem;
-  max-width: 1110px;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: var(--font-down-1);
-  color: var(--primary-medium);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 1rem;
-    right: 1rem;
-    height: 2px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ef4444);
-    opacity: 0.7;
-  }
-
-  &__inner {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 2rem;
-  }
-
-  &__brand {
-    strong {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-      font-size: var(--font-0);
-    }
-
-    p {
-      margin: 0;
-      line-height: 1.5;
-      max-width: 34ch;
-    }
-  }
-
-  &__col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-
-    h4 {
-      margin: 0 0 0.3rem;
-      font-size: var(--font-down-2);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-    }
-
-    a {
-      color: var(--primary-medium);
-      text-decoration: none;
-      transition: color 0.15s ease, transform 0.15s ease;
-
-      &:hover {
-        color: var(--tertiary);
-        transform: translateX(2px);
-      }
-    }
-  }
-
-  &__bottom {
-    margin-top: 1.8rem;
-    padding-top: 1rem;
-    border-top: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
-    text-align: center;
-    font-size: var(--font-down-2);
-    color: var(--primary-low-mid);
-  }
-}
-
-@media (max-width: 900px) {
-  .hacf-footer__inner {
-    grid-template-columns: 1fr 1fr;
-  }
-  .hacf-footer__brand {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 480px) {
-  .hacf-footer__inner {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Footer : visible uniquement sur l'accueil + alignement avec la sidebar */
-.hacf-footer {
-  display: none;
-  --hf-sw: 0px;
-  --hf-pad: max(1rem, calc((100% - var(--hf-sw) - 1110px) / 2));
-  max-width: none;
-  margin: 3rem 0 0;
-  padding: 2.2rem var(--hf-pad) 1.2rem calc(var(--hf-sw) + var(--hf-pad));
-
-  &::before {
-    left: calc(var(--hf-sw) + var(--hf-pad));
-    right: var(--hf-pad);
-  }
-}
-
-body:has(.hacf-home) .hacf-footer {
-  display: block;
-}
-
-.has-sidebar-page .hacf-footer {
-  --hf-sw: var(--d-sidebar-width, 212px);
-}
-
-.mobile-view .hacf-footer {
-  --hf-sw: 0px;
-}
-
-/* Footer : positionnement simplifié (remplace le calcul avec --hf-sw) */
-.hacf-footer {
-  max-width: 1110px;
-  margin: 3rem auto 0;
-  padding: 2.2rem 1rem 1.2rem;
-
-  &::before {
-    left: 1rem;
-    right: 1rem;
-  }
-}
-
-@media (min-width: 1300px) {
-  .has-sidebar-page .hacf-footer {
-    transform: translateX(112px);
-  }
-}
-
-/* Footer : ajustement fin d'alignement avec les cartes */
-.hacf-footer {
-  padding-inline: 0.75rem;
-
-  &::before {
-    left: 0.75rem;
-    right: 0.75rem;
-  }
-}
-
-@media (min-width: 1300px) {
-  .has-sidebar-page .hacf-footer {
-    transform: translateX(130px);
-  }
-}
-
 /* Admin : le panneau central devient une carte (toutes les pages /admin/*) */
 .boxed.white.admin-content {
   padding: 1.25rem 1.75rem 1.75rem;
@@ -2606,4 +2451,100 @@ body:has(.hacf-home) .hacf-footer {
 /* Sidebar admin : le cœur impose un fond sur .admin-panel, on le rend transparent */
 .admin-area .sidebar-wrapper .sidebar-sections.admin-panel {
   background: transparent;
+}
+
+/* ===== Footer HACF (dans la grille de l'accueil) ===== */
+.hacf-home .hacf-footer {
+  grid-column: 1 / -1;
+  position: relative;
+  margin-top: 1rem;
+  padding: 2.2rem 0.75rem 1rem;
+  font-size: var(--font-down-1);
+  color: var(--primary-medium);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ef4444);
+    opacity: 0.7;
+  }
+}
+
+@media (min-width: 901px) {
+  .hacf-home .hacf-footer { grid-row: 6; }
+}
+
+.hacf-footer__inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.hacf-footer__brand {
+  strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-size: var(--font-0);
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+    max-width: 34ch;
+  }
+}
+
+.hacf-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  h4 {
+    margin: 0 0 0.3rem;
+    font-size: var(--font-down-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+  }
+  a {
+    color: var(--primary-medium);
+    text-decoration: none;
+    transition: color 0.15s ease, transform 0.15s ease;
+    &:hover {
+      color: var(--tertiary);
+      transform: translateX(2px);
+    }
+  }
+}
+
+.hacf-footer__bottom {
+  margin-top: 1.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
+  text-align: center;
+  font-size: var(--font-down-2);
+  color: var(--primary-low-mid);
+}
+
+@media (max-width: 900px) {
+  .hacf-footer__inner { grid-template-columns: 1fr 1fr; }
+  .hacf-footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px) {
+  .hacf-footer__inner { grid-template-columns: 1fr; }
+}
+
+/* Sidebar : pied de sidebar sans fond propre (même couleur que la carte) */
+.sidebar-wrapper .sidebar-footer-wrapper,
+.sidebar-wrapper .sidebar-footer-container {
+  background: transparent;
+}
+.sidebar-wrapper .sidebar-footer-wrapper::before {
+  display: none;
 }
