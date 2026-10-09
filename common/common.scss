@@ -1981,3 +1981,27 @@ body {
     background: color-mix(in srgb, var(--primary) 4%, var(--secondary));
   }
 }
+
+// Messages en cartes : resserrer le bas des cartes
+.topic-post {
+  .topic-body {
+    padding-bottom: 0.3rem;
+    margin-bottom: 0;
+  }
+
+  .cooked {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .post-controls,
+  nav.post-controls,
+  .post__menu-area {
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+  }
+
+  article.boxed {
+    padding-bottom: 0.2rem;
+  }
+}
