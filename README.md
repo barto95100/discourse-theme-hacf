@@ -6,7 +6,7 @@ Identité : les couleurs du logo (dégradé bleu → violet → rouge), un mode 
 
 ## Fonctionnalités
 
-- **Accueil en grille (bento)** : bienvenue, dernières publications du blog, statistiques, événements à venir, équipe et « Comment ça marche ». Les connectés voient un message de retour, les visiteurs une invitation à rejoindre la communauté.
+- **Accueil en grille (bento)** : bienvenue, dernières publications du blog, statistiques, événements à venir, équipe et « Comment ça marche ». Une bande d'avatars des contributeurs de la semaine et, pour les visiteurs, une invitation à rejoindre la communauté.
 - **Équipe** affichée depuis le groupe `Equipe`, regroupée par titre de profil (fondateur, modérateur, etc.).
 - **Fond global** : halo bleu → rouge, arbres « circuit » sur les côtés (grands écrans), motif d'icônes Home Assistant flouté.
 - **Messages en cartes** dans les sujets, en clair et en sombre.
