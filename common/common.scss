@@ -104,12 +104,7 @@ $hacf-tree: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' view
 
 .welcome-banner {
   border-radius: 20px;
-  background:
-    $hacf-tree 6% -14px / 190px auto no-repeat,
-    $hacf-tree 94% -22px / 170px auto no-repeat,
-    radial-gradient(ellipse 55% 120% at 15% 0%, rgba(26, 123, 255, 0.16), transparent 70%),
-    radial-gradient(ellipse 55% 120% at 50% -15%, rgba(139, 90, 168, 0.14), transparent 70%),
-    radial-gradient(ellipse 55% 120% at 85% 0%, rgba(255, 61, 56, 0.12), transparent 70%);
+  background: none;
 }
 
 .welcome-banner__title {
@@ -1894,6 +1889,8 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
 // Halo de fond global : bleu (haut gauche) -> violet (bas) -> rouge (haut droite)
 html {
   background-image:
+    $hacf-tree left 4% top 70px / 230px auto no-repeat,
+    $hacf-tree right 4% top 70px / 230px auto no-repeat,
     radial-gradient(85vw 65vh at 5% -10%, color-mix(in srgb, #1a7bff 36%, transparent), transparent 70%),
     radial-gradient(80vw 60vh at 98% -10%, color-mix(in srgb, #ff3d38 30%, transparent), transparent 70%),
     radial-gradient(90vw 55vh at 50% 110%, color-mix(in srgb, #8b5aa8 22%, transparent), transparent 70%);
@@ -1905,8 +1902,6 @@ html {
 .welcome-banner {
   border-color: transparent !important;
   box-shadow: none !important;
-  -webkit-mask-image: radial-gradient(ellipse 72% 88% at 50% 50%, #000 62%, transparent 100%);
-  mask-image: radial-gradient(ellipse 72% 88% at 50% 50%, #000 62%, transparent 100%);
 }
 
 // Sélecteurs et boutons arrondis, comme le reste du thème
