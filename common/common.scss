@@ -2026,3 +2026,16 @@ body {
   max-width: 1100px;
   margin-inline: auto;
 }
+
+// Messages en cartes : teinte d'accent (clair et sombre)
+.topic-post article.boxed {
+  background: color-mix(in srgb, color-mix(in srgb, var(--tertiary) 5%, var(--secondary)) 90%, transparent);
+  border-color: color-mix(in srgb, var(--tertiary) 16%, transparent);
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--tertiary) 8%, transparent);
+}
+
+.topic-post article#post_1.boxed {
+  box-shadow:
+    inset 4px 0 0 var(--tertiary),
+    0 4px 18px color-mix(in srgb, var(--tertiary) 8%, transparent);
+}
