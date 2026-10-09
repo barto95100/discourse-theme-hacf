@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
+import icon from "discourse/helpers/d-icon";
 import Category from "discourse/models/category";
 import { i18n } from "discourse-i18n";
 
@@ -28,6 +29,7 @@ export default class HacfHome extends Component {
             ? {
                 name: cat.name,
                 url: cat.url,
+                icon: item.icon || "folder",
                 description: String(item.description ?? ""),
                 counts: i18n(themePrefix("card_counts"), {
                   topics: cat.topic_count ?? 0,
@@ -82,6 +84,7 @@ export default class HacfHome extends Component {
       <section class="hacf-pillars">
         {{#each this.pillars as |pillar|}}
           <a class="hacf-pillar" href={{pillar.url}}>
+            <span class="hacf-pillar__icon">{{icon pillar.icon}}</span>
             <h3 class="hacf-pillar__title">{{pillar.name}}</h3>
             <p class="hacf-pillar__desc">{{pillar.description}}</p>
             <span class="hacf-pillar__count">{{pillar.counts}}</span>
