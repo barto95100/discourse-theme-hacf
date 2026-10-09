@@ -11,12 +11,14 @@ export default class HacfHome extends Component {
 
   @tracked stats = null;
   @tracked events = [];
+  @tracked articles = [];
 
   constructor() {
     super(...arguments);
     this.pillars = this.buildPillars();
     this.loadStats();
     this.loadEvents();
+    this.loadArticles();
   }
 
   pillars = [];
@@ -44,6 +46,34 @@ export default class HacfHome extends Component {
         .filter(Boolean);
     } catch {
       return [];
+    }
+  }
+
+  async loadArticles() {
+    try {
+      const data = await ajax("/tag/hacf-blog.json");
+      const lang = document.documentElement.lang || "fr";
+      const fmtDate = new Intl.DateTimeFormat(lang, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+      this.articles = (data?.topic_list?.topics || [])
+        .filter((t) => t.created_at)
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        .slice(0, 3)
+        .map((t) => {
+          const m = String(t.title).match(/^\s*\[([^\]]+)\]\s*(.*)$/);
+          return {
+            url: `/t/${t.slug}/${t.id}`,
+            title: m ? m[2] : t.title,
+            badge: m ? m[1] : "",
+            image: t.image_url,
+            date: fmtDate.format(new Date(t.created_at)),
+          };
+        });
+    } catch {
+      // pas d'articles : la section reste cachée
     }
   }
 
@@ -153,6 +183,31 @@ export default class HacfHome extends Component {
             {{/each}}
           </div>
           <a class="hacf-upcoming__all" href="/upcoming-events">{{i18n (themePrefix "home_events_all")}}</a>
+        </section>
+      {{/if}}
+
+      {{#if this.articles.length}}
+        <section class="hacf-news">
+          <h2 class="hacf-news__title">{{i18n (themePrefix "home_articles_title")}}</h2>
+          <div class="hacf-news__list">
+            {{#each this.articles as |art|}}
+              <a class="hacf-news-card" href={{art.url}}>
+                {{#if art.image}}
+                  <img class="hacf-news-card__img" src={{art.image}} alt="" loading="lazy" />
+                {{else}}
+                  <span class="hacf-news-card__img hacf-news-card__img--empty"></span>
+                {{/if}}
+                <span class="hacf-news-card__body">
+                  {{#if art.badge}}
+                    <span class="hacf-news-card__badge">{{art.badge}}</span>
+                  {{/if}}
+                  <span class="hacf-news-card__name">{{art.title}}</span>
+                  <span class="hacf-news-card__date">{{art.date}}</span>
+                </span>
+              </a>
+            {{/each}}
+          </div>
+          <a class="hacf-news__all" href="/tag/hacf-blog">{{i18n (themePrefix "home_articles_all")}}</a>
         </section>
       {{/if}}
 

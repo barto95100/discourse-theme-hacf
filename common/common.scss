@@ -1793,3 +1793,91 @@ html[lang^="en"] .signup-fullpage .login-right-side::after {
   grid-template-columns: repeat(auto-fit, minmax(240px, 380px));
   justify-content: center;
 }
+
+// Accueil : dernières publications
+.hacf-news {
+  margin-top: 2rem;
+  text-align: center;
+
+  &__title {
+    margin: 0 0 1.2rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 360px));
+    justify-content: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  &__all {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+}
+
+.hacf-news-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--primary-low);
+  border-radius: 16px;
+  background: var(--secondary);
+  color: var(--primary);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  &:visited,
+  &:hover,
+  &:focus {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--tertiary);
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+
+    &--empty {
+      background: linear-gradient(135deg, #1a7bff33, #8b5aa833 55%, #ff3d3833);
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 1rem 1.2rem 1.2rem;
+  }
+
+  &__badge {
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    font-size: var(--font-down-2);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--tertiary);
+    background: var(--tertiary-very-low);
+  }
+
+  &__name {
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  &__date {
+    font-size: var(--font-down-1);
+    color: var(--primary-high);
+  }
+}
