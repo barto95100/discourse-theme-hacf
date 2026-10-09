@@ -57,6 +57,21 @@ export default class HacfHome extends Component {
     return this.stats?.[0]?.value;
   }
 
+  get teamGroups() {
+    const groups = new Map();
+    for (const m of this.team) {
+      const key = m.title || "";
+      if (!groups.has(key)) {
+        groups.set(key, []);
+      }
+      groups.get(key).push(m);
+    }
+    return [...groups.entries()].map(([title, members]) => ({
+      title,
+      members,
+    }));
+  }
+
   async loadTeam() {
     try {
       const data = await ajax("/g/Equipe/members.json?limit=50");
@@ -289,17 +304,20 @@ export default class HacfHome extends Component {
       {{#if this.team.length}}
         <section class="hacf-team">
           <h2 class="hacf-team__title">{{i18n (themePrefix "home_team_title")}}</h2>
-          <div class="hacf-team__list">
-            {{#each this.team as |m|}}
-              <a class="hacf-team-member" href={{m.url}}>
-                <img class="hacf-team-member__avatar" src={{m.avatar}} alt="" loading="lazy" />
-                <span class="hacf-team-member__text">
-                  <span class="hacf-team-member__name">{{m.name}}</span>
-                  {{#if m.title}}
-                    <span class="hacf-team-member__role">{{m.title}}</span>
-                  {{/if}}
-                </span>
-              </a>
+          <div class="hacf-team__groups">
+            {{#each this.teamGroups as |g|}}
+              <div class="hacf-team-group">
+                <h3 class="hacf-team-group__title">
+                  {{if g.title g.title (i18n (themePrefix "home_team_other"))}}
+                  <span class="hacf-team-group__count">{{g.members.length}}</span>
+                </h3>
+                {{#each g.members as |m|}}
+                  <a class="hacf-team-member" href={{m.url}}>
+                    <img class="hacf-team-member__avatar" src={{m.avatar}} alt="" loading="lazy" />
+                    <span class="hacf-team-member__name">{{m.name}}</span>
+                  </a>
+                {{/each}}
+              </div>
             {{/each}}
           </div>
           <a class="hacf-team__all" href="/g/Equipe">{{i18n (themePrefix "home_team_all")}}</a>

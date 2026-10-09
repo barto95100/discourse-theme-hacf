@@ -1,5 +1,6 @@
 en:
   hot_title: "Hot topics"
+  home_team_other: "Members"
   home_team_title: "The team"
   home_team_all: "See the whole team"
   home_welcome_back: "Welcome back, %{username}"

@@ -2493,3 +2493,40 @@ body {
     line-height: 2rem;
   }
 }
+
+// Accueil : équipe en colonnes par rôle
+.hacf-home .hacf-team .hacf-team__groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.hacf-team-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 0.4rem;
+    padding-bottom: 0.5rem;
+    font-size: var(--font-down-1);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-high);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #1a7bff, #8b5aa8, #ff3d38) 1;
+  }
+
+  &__count {
+    padding: 0.05rem 0.55rem;
+    border-radius: 999px;
+    font-size: var(--font-down-2);
+    color: var(--tertiary);
+    background: var(--tertiary-very-low);
+  }
+}
