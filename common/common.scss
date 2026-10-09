@@ -2251,3 +2251,84 @@ body {
     margin-top: 0;
   }
 }
+
+// Accueil : panneau « L'équipe », sous les événements
+.hacf-home {
+  .hacf-news     { grid-row: 3 / span 2; }
+  .hacf-upcoming { align-self: start; }
+  .hacf-team     { grid-column: 9 / -1; grid-row: 4; align-self: start; }
+  .hacf-steps    { grid-row: 5; }
+
+  &:not(:has(.hacf-upcoming)) .hacf-team {
+    grid-row: 3;
+  }
+}
+
+.hacf-home .hacf-team {
+  padding: 1.2rem;
+  border: 1px solid var(--primary-low);
+  border-radius: 20px;
+  background: var(--secondary);
+  text-align: left;
+
+  .hacf-team__title {
+    margin: 0 0 0.9rem;
+    font-size: var(--font-up-1);
+  }
+
+  .hacf-team__list {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .hacf-team__all {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+.hacf-team-member {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 12px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: background 0.2s ease;
+
+  &:visited,
+  &:hover,
+  &:focus {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: var(--tertiary-very-low);
+  }
+
+  &__avatar {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__role {
+    font-size: var(--font-down-1);
+    color: var(--primary-high);
+  }
+}

@@ -13,6 +13,7 @@ export default class HacfHome extends Component {
   @tracked events = [];
   @tracked articles = [];
   @tracked contributors = [];
+  @tracked team = [];
 
   constructor() {
     super(...arguments);
@@ -21,6 +22,7 @@ export default class HacfHome extends Component {
     this.loadEvents();
     this.loadArticles();
     this.loadContributors();
+    this.loadTeam();
   }
 
   pillars = [];
@@ -53,6 +55,35 @@ export default class HacfHome extends Component {
 
   get membersLabel() {
     return this.stats?.[0]?.value;
+  }
+
+  async loadTeam() {
+    try {
+      const data = await ajax("/g/Equipe/members.json?limit=50");
+      const rank = (t) => {
+        const k = String(t || "").toLowerCase();
+        if (k.startsWith("fondateur")) { return 0; }
+        if (k.startsWith("mod")) { return 1; }
+        if (k.startsWith("adh")) { return 9; }
+        return k ? 2 : 8;
+      };
+      this.team = (data?.members || [])
+        .filter((m) => m.username && m.username !== "Equipe_HACF")
+        .sort(
+          (a, b) =>
+            rank(a.title) - rank(b.title) ||
+            a.username.localeCompare(b.username)
+        )
+        .slice(0, 6)
+        .map((m) => ({
+          name: m.name || m.username,
+          url: `/u/${m.username}`,
+          title: m.title || "",
+          avatar: m.avatar_template.replace("{size}", "96"),
+        }));
+    } catch {
+      // pas d'équipe : le panneau reste caché
+    }
   }
 
   async loadContributors() {
@@ -246,6 +277,26 @@ export default class HacfHome extends Component {
             {{/each}}
           </div>
           <a class="hacf-upcoming__all" href="/upcoming-events">{{i18n (themePrefix "home_events_all")}}</a>
+        </section>
+      {{/if}}
+
+      {{#if this.team.length}}
+        <section class="hacf-team">
+          <h2 class="hacf-team__title">{{i18n (themePrefix "home_team_title")}}</h2>
+          <div class="hacf-team__list">
+            {{#each this.team as |m|}}
+              <a class="hacf-team-member" href={{m.url}}>
+                <img class="hacf-team-member__avatar" src={{m.avatar}} alt="" loading="lazy" />
+                <span class="hacf-team-member__text">
+                  <span class="hacf-team-member__name">{{m.name}}</span>
+                  {{#if m.title}}
+                    <span class="hacf-team-member__role">{{m.title}}</span>
+                  {{/if}}
+                </span>
+              </a>
+            {{/each}}
+          </div>
+          <a class="hacf-team__all" href="/g/Equipe">{{i18n (themePrefix "home_team_all")}}</a>
         </section>
       {{/if}}
 

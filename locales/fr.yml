@@ -1,5 +1,7 @@
 fr:
   hot_title: "Sujets chauds"
+  home_team_title: "L'équipe"
+  home_team_all: "Voir toute l'équipe"
   home_welcome_back: "Content de te revoir, %{username}"
   home_contrib_title: "Ils font vivre la communauté cette semaine"
   home_join: "Rejoins nos %{members} membres"
