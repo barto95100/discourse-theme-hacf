@@ -133,3 +133,10 @@ banner_badge:
   type: string
   default: "Nouveau"
   description: "Bandeau d'annonce : pastille avant le message (ex. Nouveau, Info, Important ; vide = aucune)"
+
+presence_refresh_seconds:
+  type: integer
+  default: 120
+  min: 30
+  max: 600
+  description: "Présence en ligne : intervalle de rafraîchissement en secondes (un décalage aléatoire de 0 à 30 s est ajouté par navigateur)"

@@ -9,16 +9,29 @@ class HacfPresence {
     this._users++;
     if (this._users === 1) {
       this.refresh();
-      this._timer = setInterval(() => this.refresh(), 60000);
+      this._schedule();
     }
   }
 
   release() {
     this._users = Math.max(0, this._users - 1);
     if (this._users === 0) {
-      clearInterval(this._timer);
+      clearTimeout(this._timer);
       this._timer = null;
     }
+  }
+
+  // Rafraîchit à intervalle réglable, avec un décalage aléatoire par navigateur
+  // pour éviter que tous les visiteurs appellent le serveur au même instant.
+  _schedule() {
+    const base = (settings.presence_refresh_seconds || 120) * 1000;
+    const jitter = Math.random() * 30000;
+    this._timer = setTimeout(async () => {
+      await this.refresh();
+      if (this._users > 0) {
+        this._schedule();
+      }
+    }, base + jitter);
   }
 
   async refresh() {
