@@ -3309,3 +3309,42 @@ body {
     }
   }
 }
+
+// Présence : avatars empilés au repos, dépliés au survol
+@media (hover: hover) {
+  .hacf-pill--list .hacf-pill__avatars {
+    flex-wrap: nowrap;
+    max-width: 100%;
+
+    .hacf-pill__avatar {
+      position: relative;
+      margin-left: -0.95rem;
+      transition:
+        margin-left 0.2s ease,
+        transform 0.15s ease;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        transform: translateY(-2px) scale(1.12);
+        z-index: 3;
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      flex-wrap: wrap;
+      row-gap: 0.25rem;
+
+      .hacf-pill__avatar {
+        margin-left: 0.2rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
